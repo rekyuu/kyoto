@@ -62,8 +62,8 @@ spec:
                 secretKeyRef:
                   name: kuma-secrets
                   key: postgres-database
-                  apiVersion: apps/v1
 ---
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: kumakaini-discord
@@ -107,6 +107,7 @@ spec:
                   key: discord-moon-guild-id
                   apiVersion: apps/v1
 ---
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: kumakaini-telegram
