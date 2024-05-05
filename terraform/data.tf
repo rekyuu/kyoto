@@ -73,7 +73,7 @@ data "cloudinit_config" "shoko_config" {
       # Install and enable docker
       - dnf check-update
       - dnf config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-      - dnf -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin vim postgres
+      - dnf -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin vim postgres sssd
       - systemctl enable docker
       # Bounds the amount of logs that can survive on the system
       - [sed, '-i', 's/#SystemMaxUse=/SystemMaxUse=3G/g', /etc/systemd/journald.conf]
