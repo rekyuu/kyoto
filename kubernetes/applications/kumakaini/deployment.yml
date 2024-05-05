@@ -87,6 +87,31 @@ spec:
           env:
             - name: REDIS_HOST
               value: redis.default.svc.cluster.local
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: kuma-secrets
+                  key: redis-password
+            - name: POSTGRES_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: kuma-secrets
+                  key: postgres-host
+            - name: POSTGRES_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: kuma-secrets
+                  key: postgres-username
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: kuma-secrets
+                  key: postgres-password
+            - name: POSTGRES_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: kuma-secrets
+                  key: postgres-database
             - name: DISCORD_TOKEN
               valueFrom:
                 secretKeyRef:
@@ -108,26 +133,6 @@ spec:
                   name: kuma-secrets
                   key: discord-moon-guild-id
                   apiVersion: apps/v1
-            - name: POSTGRES_HOST
-              valueFrom:
-                secretKeyRef:
-                  name: kuma-secrets
-                  key: postgres-host
-            - name: POSTGRES_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  name: kuma-secrets
-                  key: postgres-username
-            - name: POSTGRES_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: kuma-secrets
-                  key: postgres-password
-            - name: POSTGRES_DATABASE
-              valueFrom:
-                secretKeyRef:
-                  name: kuma-secrets
-                  key: postgres-database
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -153,16 +158,11 @@ spec:
           env:
             - name: REDIS_HOST
               value: redis.default.svc.cluster.local
-            - name: TELEGRAM_ACCESS_TOKEN
+            - name: REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: kuma-secrets
-                  key: telegram-access-token
-            - name: TELEGRAM_ADMIN_ID
-              valueFrom:
-                secretKeyRef:
-                  name: kuma-secrets
-                  key: telegram-admin-id
+                  key: redis-password
             - name: POSTGRES_HOST
               valueFrom:
                 secretKeyRef:
@@ -183,3 +183,13 @@ spec:
                 secretKeyRef:
                   name: kuma-secrets
                   key: postgres-database
+            - name: TELEGRAM_ACCESS_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: kuma-secrets
+                  key: telegram-access-token
+            - name: TELEGRAM_ADMIN_ID
+              valueFrom:
+                secretKeyRef:
+                  name: kuma-secrets
+                  key: telegram-admin-id
