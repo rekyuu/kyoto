@@ -1,0 +1,122 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kumakaini
+  labels:
+    app: kumakaini
+spec:
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: kumakaini
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: kumakaini
+    spec:
+      containers:
+        - name: kumakaini-request-processor
+          image: ghcr.io/rekyuu/kumakaini-request-processor:3.0.0-beta.1
+          imagePullPolicy: Always
+          env:
+            - name: REDIS_HOST
+              value: redis.default.svc.cluster.local
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: kuma-secrets
+                  key: redis-password
+            - name: DANBOORU_USER
+              valueFrom:
+                secretKeyRef:
+                  name: kuma-secrets
+                  key: danbooru-user
+            - name: DANBOORU_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: kuma-secrets
+                  key: danbooru-api-key
+            - name: OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: kuma-secrets
+                  key: openai-api-key
+            - name: POSTGRES_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: kuma-secrets
+                  key: postgres-host
+            - name: POSTGRES_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: kuma-secrets
+                  key: postgres-username
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: kuma-secrets
+                  key: postgres-password
+            - name: POSTGRES_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: kuma-secrets
+                  key: postgres-database
+        - name: kumakaini-discord
+          image: ghcr.io/rekyuu/kumakaini-discord:3.0.0-beta.1
+          imagePullPolicy: Always
+          env:
+            - name: DISCORD_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: kuma-secrets
+                  key: discord-token
+            - name: DISCORD_MOD_ROLE_ID
+              valueFrom:
+                secretKeyRef:
+                  name: kuma-secrets
+                  key: discord-mod-role-id
+            - name: DISCORD_ADMIN_ID
+              valueFrom:
+                secretKeyRef:
+                  name: kuma-secrets
+                  key: discord-admin-id
+            - name: DISCORD_MOON_GUILD_ID
+              valueFrom:
+                secretKeyRef:
+                  name: kuma-secrets
+                  key: discord-moon-guild-id
+        - name: kumakaini-telegram
+          image: ghcr.io/rekyuu/kumakaini-telegram:3.0.0-beta.1
+          imagePullPolicy: Always
+          env:
+            - name: TELEGRAM_ACCESS_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: kuma-secrets
+                  key: telegram-access-token
+            - name: TELEGRAM_ADMIN_ID
+              valueFrom:
+                secretKeyRef:
+                  name: kuma-secrets
+                  key: telegram-admin-id
+            - name: POSTGRES_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: kuma-secrets
+                  key: postgres-host
+            - name: POSTGRES_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: kuma-secrets
+                  key: postgres-username
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: kuma-secrets
+                  key: postgres-password
+            - name: POSTGRES_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: kuma-secrets
+                  key: postgres-database

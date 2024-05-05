@@ -1,3 +1,6 @@
+# Kubernetes secrets
+kubernetes/secrets/secrets.yml
+
 # Local .terraform directories
 **/.terraform/*
 

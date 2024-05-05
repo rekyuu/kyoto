@@ -212,7 +212,7 @@ resource "hcloud_server" "main_server" {
 
   // Install k3s
   provisioner "remote-exec" {
-    inline = ["curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC='server --cluster-init --write-kubeconfig-mode=644' sh -"]
+    inline = ["curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC='server --cluster-init --write-kubeconfig-mode=644' sh -s - server --secrets-encryption"]
   }
 
   // Create the private network ssh key
