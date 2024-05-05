@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: riichi-me
+  labels:
+    app: riichi-me
+spec:
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: riichi-me
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: riichi-me
+    spec:
+      containers:
+        - name: riichi-me
+          image: ghcr.io/rekyuu/riichi-me:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: riichi-me
+spec:
+  type: ClusterIP
+  ports:
+  - name: http
+    targetPort: 80
+    port: 80
+  selector:
+    app: riichi-me
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: riichi-me
+spec:
+  routes:
+    - kind: Rule
+      match: HostRegexp(`{any:.+}`)
+      priority: 1
+      services:
+        - name: riichi-me
+          port: 80
+    - kind: Rule
+      match: Host(`riichi.me`)
+      priority: 10
+      services:
+        - name: riichi-me
+          port: 80
+    - kind: Rule
+      match: Host(`koto.riichi.me`)
+      priority: 10
+      services:
+        - name: riichi-me
+          port: 80
+

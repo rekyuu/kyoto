@@ -1,0 +1,13 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: kubernetes-dashboard
+  namespace: kubernetes-dashboard
+spec:
+  routes:
+    - kind: Rule
+      match: Host(`k8s.riichi.me`)
+      priority: 10
+      services:
+        - name: kubernetes-dashboard-kong-proxy
+          port: 8443
