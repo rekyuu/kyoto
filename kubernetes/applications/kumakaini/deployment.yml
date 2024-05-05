@@ -108,6 +108,26 @@ spec:
                   name: kuma-secrets
                   key: discord-moon-guild-id
                   apiVersion: apps/v1
+            - name: POSTGRES_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: kuma-secrets
+                  key: postgres-host
+            - name: POSTGRES_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: kuma-secrets
+                  key: postgres-username
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: kuma-secrets
+                  key: postgres-password
+            - name: POSTGRES_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: kuma-secrets
+                  key: postgres-database
 ---
 apiVersion: apps/v1
 kind: Deployment
