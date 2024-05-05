@@ -85,6 +85,8 @@ spec:
           image: ghcr.io/rekyuu/kumakaini-discord:3.0.0-beta.1
           imagePullPolicy: Always
           env:
+            - name: REDIS_HOST
+              value: redis.default.svc.cluster.local
             - name: DISCORD_TOKEN
               valueFrom:
                 secretKeyRef:
@@ -129,6 +131,8 @@ spec:
           image: ghcr.io/rekyuu/kumakaini-telegram:3.0.0-beta.1
           imagePullPolicy: Always
           env:
+            - name: REDIS_HOST
+              value: redis.default.svc.cluster.local
             - name: TELEGRAM_ACCESS_TOKEN
               valueFrom:
                 secretKeyRef:
