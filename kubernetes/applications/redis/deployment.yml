@@ -19,7 +19,7 @@ spec:
         - name: redis
           image: redis:7.2.4-alpine
           imagePullPolicy: Always
-          command: ["redis-server", "--requirepass", "\"$REDIS_PASSWORD\""]
+          command: ["redis-server", "--requirepass", "\"$$REDIS_PASSWORD\""]
           env:
             - name: REDIS_PASSWORD
               valueFrom:
