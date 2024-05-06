@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: horror-bingo
+  labels:
+    app: horror-bingo
+spec:
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: horror-bingo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: horror-bingo
+    spec:
+      containers:
+        - name: horror-bingo
+          image: ghcr.io/rekyuu/horror_bingo:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: horror-bingo
+spec:
+  type: ClusterIP
+  ports:
+  - name: http
+    targetPort: 5000
+    port: 80
+  selector:
+    app: horror-bingo
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: horror-bingo
+spec:
+  routes:
+    - kind: Rule
+      match: Host(`horror.riichi.me`)
+      priority: 10
+      services:
+        - name: horror-bingo
+          port: 80
