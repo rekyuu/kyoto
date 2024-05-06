@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: horror-bingo
-          image: ghcr.io/rekyuu/horror_bingo:latest
+          image: ghcr.io/rekyuu/horror-bingo:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8000
