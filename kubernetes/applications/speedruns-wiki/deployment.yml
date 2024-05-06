@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: speedruns-wiki
+  labels:
+    app: speedruns-wiki
+spec:
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: speedruns-wiki
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: speedruns-wiki
+    spec:
+      containers:
+        - name: speedruns-wiki
+          image: ghcr.io/rekyuu/speedruns-wiki:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: speedruns-wiki
+spec:
+  type: ClusterIP
+  ports:
+  - name: http
+    targetPort: 80
+    port: 80
+  selector:
+    app: speedruns-wiki
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: speedruns-wiki
+spec:
+  routes:
+    - kind: Rule
+      match: Host(`speedruns.wiki`)
+      priority: 10
+      services:
+        - name: speedruns-wiki
+          port: 80
