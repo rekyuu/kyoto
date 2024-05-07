@@ -301,8 +301,8 @@ spec:
               subPath: images
       volumes:
         - name: okami-wiki-config-mount
-          persistentVolumeClaim:
-            claimName: okami-wiki-config
+          configMap:
+            name: okami-wiki-config
         - name: okami-wiki-volume-mount
           persistentVolumeClaim:
             claimName: okami-wiki-volume-claim

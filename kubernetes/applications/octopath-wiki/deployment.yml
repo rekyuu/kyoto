@@ -294,8 +294,8 @@ spec:
               subPath: images
       volumes:
         - name: octopath-wiki-config-mount
-          persistentVolumeClaim:
-            claimName: octopath-wiki-config
+          configMap:
+            name: octopath-wiki-config
         - name: octopath-wiki-volume-mount
           persistentVolumeClaim:
             claimName: octopath-wiki-volume-claim
