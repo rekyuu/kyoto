@@ -56,7 +56,7 @@ spec:
                   valueFrom:
                     secretKeyRef:
                       name: backup-cronjob-secrets
-                      key: aws-s3-bucket
+                      key: aws-s3-bucket-databases
                 - name: AWS_ACCESS_KEY_ID
                   valueFrom:
                     secretKeyRef:
@@ -107,7 +107,7 @@ spec:
                   valueFrom:
                     secretKeyRef:
                       name: backup-cronjob-secrets
-                      key: aws-s3-bucket
+                      key: aws-s3-bucket-directories
                 - name: AWS_ACCESS_KEY_ID
                   valueFrom:
                     secretKeyRef:
@@ -147,7 +147,7 @@ spec:
                   valueFrom:
                     secretKeyRef:
                       name: backup-cronjob-secrets
-                      key: aws-s3-bucket
+                      key: aws-s3-bucket-directories
                 - name: AWS_ACCESS_KEY_ID
                   valueFrom:
                     secretKeyRef:
@@ -187,7 +187,7 @@ spec:
                   valueFrom:
                     secretKeyRef:
                       name: backup-cronjob-secrets
-                      key: aws-s3-bucket
+                      key: aws-s3-bucket-directories
                 - name: AWS_ACCESS_KEY_ID
                   valueFrom:
                     secretKeyRef:
