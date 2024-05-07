@@ -284,7 +284,7 @@ spec:
               command: ["sh", "-c", "chown -R nobody:nobody /var/www/html"]
               volumeMounts:
                 - mountPath: "/var/www/html/images"
-                  name: okami-wiki-volume-mount
+                  name: okami-wiki-volume
                   subPath: images
           volumeMounts:
             - mountPath: "/var/www/html/LocalSettings.php"
