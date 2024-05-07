@@ -66,6 +66,11 @@ spec:
                 secretKeyRef:
                   name: kuma-secrets
                   key: postgres-database
+            - name: TELEGRAM_ADMIN_ID
+              valueFrom:
+                secretKeyRef:
+                  name: kuma-secrets
+                  key: telegram-admin-id
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -136,6 +141,11 @@ spec:
                 secretKeyRef:
                   name: kuma-secrets
                   key: discord-moon-guild-id
+            - name: TELEGRAM_ADMIN_ID
+              valueFrom:
+                secretKeyRef:
+                  name: kuma-secrets
+                  key: telegram-admin-id
 ---
 apiVersion: apps/v1
 kind: Deployment
