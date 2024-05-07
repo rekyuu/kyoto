@@ -1,0 +1,209 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: vaultwarden-volume-ro-claim
+spec:
+  volumeName: vaultwarden-volume
+  storageClassName: local-storage
+  accessModes:
+    - ReadOnlyMany
+  resources:
+    requests:
+      storage: 8Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: octopath-wiki-volume-ro-claim
+spec:
+  volumeName: octopath-wiki-volume
+  storageClassName: local-storage
+  accessModes:
+    - ReadOnlyMany
+  resources:
+    requests:
+      storage: 8Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: okami-wiki-volume-ro-claim
+spec:
+  volumeName: okami-wiki-volume
+  storageClassName: local-storage
+  accessModes:
+    - ReadOnlyMany
+  resources:
+    requests:
+      storage: 8Gi
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: postgresql-backup
+spec:
+  schedule: "@hourly"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: postgresql-backup
+              image: ghcr.io/rekyuu/backup-tools/postgresql-backup:1.0.1
+              imagePullPolicy: IfNotPresent
+              env:
+                - name: AWS_S3_BUCKET
+                  valueFrom:
+                    secretKeyRef:
+                      name: backup-cronjob-secrets
+                      key: aws-s3-bucket
+                - name: AWS_ACCESS_KEY_ID
+                  valueFrom:
+                    secretKeyRef:
+                      name: backup-cronjob-secrets
+                      key: aws-access-key-id
+                - name: AWS_SECRET_ACCESS_KEY
+                  valueFrom:
+                    secretKeyRef:
+                      name: backup-cronjob-secrets
+                      key: aws-secret-access-key
+                - name: PGHOST
+                  valueFrom:
+                    secretKeyRef:
+                      name: backup-cronjob-secrets
+                      key: postgres-host
+                - name: PGPORT
+                  valueFrom:
+                    secretKeyRef:
+                      name: backup-cronjob-secrets
+                      key: postgres-port
+                - name: PGUSER
+                  valueFrom:
+                    secretKeyRef:
+                      name: backup-cronjob-secrets
+                      key: postgres-username
+                - name: PGPASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      name: backup-cronjob-secrets
+                      key: postgres-password
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: vaultwarden-data-backup
+spec:
+  schedule: "@daily"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: vaultwarden-data-backup
+              image: ghcr.io/rekyuu/backup-tools/directory-backup:1.0.1
+              imagePullPolicy: IfNotPresent
+              env:
+                - name: AWS_S3_BUCKET
+                  valueFrom:
+                    secretKeyRef:
+                      name: backup-cronjob-secrets
+                      key: aws-s3-bucket
+                - name: AWS_ACCESS_KEY_ID
+                  valueFrom:
+                    secretKeyRef:
+                      name: backup-cronjob-secrets
+                      key: aws-access-key-id
+                - name: AWS_SECRET_ACCESS_KEY
+                  valueFrom:
+                    secretKeyRef:
+                      name: backup-cronjob-secrets
+                      key: aws-secret-access-key
+                - name: BACKUP_NAME
+                  value: vaultwarden-data
+              volumeMounts:
+                - mountPath: "/data"
+                  name: vaultwarden-volume-mount
+          volumes:
+            - name: vaultwarden-volume-mount
+              persistentVolumeClaim:
+                claimName: vaultwarden-volume-ro-claim
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: octopath-wiki-assets-backup
+spec:
+  schedule: "@daily"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: octopath-wiki-assets-backup
+              image: ghcr.io/rekyuu/backup-tools/directory-backup:1.0.1
+              imagePullPolicy: IfNotPresent
+              env:
+                - name: AWS_S3_BUCKET
+                  valueFrom:
+                    secretKeyRef:
+                      name: backup-cronjob-secrets
+                      key: aws-s3-bucket
+                - name: AWS_ACCESS_KEY_ID
+                  valueFrom:
+                    secretKeyRef:
+                      name: backup-cronjob-secrets
+                      key: aws-access-key-id
+                - name: AWS_SECRET_ACCESS_KEY
+                  valueFrom:
+                    secretKeyRef:
+                      name: backup-cronjob-secrets
+                      key: aws-secret-access-key
+                - name: BACKUP_NAME
+                  value: octopath-wiki-assets
+              volumeMounts:
+                - mountPath: "/data"
+                  name: octopath-wiki-volume-mount
+          volumes:
+            - name: octopath-wiki-volume-mount
+              persistentVolumeClaim:
+                claimName: octopath-wiki-volume-ro-claim
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: okami-wiki-assets-backup
+spec:
+  schedule: "@daily"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: okami-wiki-assets-backup
+              image: ghcr.io/rekyuu/backup-tools/directory-backup:1.0.1
+              imagePullPolicy: IfNotPresent
+              env:
+                - name: AWS_S3_BUCKET
+                  valueFrom:
+                    secretKeyRef:
+                      name: backup-cronjob-secrets
+                      key: aws-s3-bucket
+                - name: AWS_ACCESS_KEY_ID
+                  valueFrom:
+                    secretKeyRef:
+                      name: backup-cronjob-secrets
+                      key: aws-access-key-id
+                - name: AWS_SECRET_ACCESS_KEY
+                  valueFrom:
+                    secretKeyRef:
+                      name: backup-cronjob-secrets
+                      key: aws-secret-access-key
+                - name: BACKUP_NAME
+                  value: okami-wiki-assets
+              volumeMounts:
+                - mountPath: "/data"
+                  name: okami-wiki-volume-mount
+          volumes:
+            - name: okami-wiki-volume-mount
+              persistentVolumeClaim:
+                claimName: okami-wiki-volume-ro-claim
