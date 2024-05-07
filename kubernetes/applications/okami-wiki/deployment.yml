@@ -229,7 +229,7 @@ spec:
     spec:
       containers:
         - name: okami-wiki
-          image: ghcr.io/rekyuu/mediawiki-custom:1.36.2-1
+          image: ghcr.io/rekyuu/mediawiki-custom:1.36.2-2
           imagePullPolicy: Always
           ports:
             - containerPort: 80
@@ -294,14 +294,6 @@ spec:
             - mountPath: "/var/www/html/favicon.ico"
               name: okami-wiki-volume-mount
               subPath: favicon.ico
-            - mountPath: "/var/www/html/images"
-              name: okami-wiki-volume-mount
-              subPath: images
-      initContainers:
-        - name: fix-volume-mount-permissions
-          image: busybox
-          command: ["sh", "-c", "chown -R nobody:nobody /var/www/html"]
-          volumeMounts:
             - mountPath: "/var/www/html/images"
               name: okami-wiki-volume-mount
               subPath: images
