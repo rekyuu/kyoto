@@ -1,9 +1,84 @@
 apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: vaultwarden-ro-volume
+  labels:
+    app: vaultwarden
+spec:
+  capacity:
+    storage: 8Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadOnlyMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  local:
+    path: "/srv/vaultwarden"
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - koto
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: octopath-wiki-ro-volume
+  labels:
+    app: octopath-wiki
+spec:
+  capacity:
+    storage: 8Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadOnlyMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  local:
+    path: "/srv/octopath-wiki"
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - koto
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: okami-wiki-ro-volume
+  labels:
+    app: okami-wiki
+spec:
+  capacity:
+    storage: 8Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadOnlyMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  local:
+    path: "/srv/okami-wiki"
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - koto
+---
+apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: vaultwarden-volume-ro-claim
 spec:
-  volumeName: vaultwarden-volume
+  volumeName: vaultwarden-ro-volume
   storageClassName: local-storage
   accessModes:
     - ReadOnlyMany
@@ -16,7 +91,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: octopath-wiki-volume-ro-claim
 spec:
-  volumeName: octopath-wiki-volume
+  volumeName: octopath-wiki-ro-volume
   storageClassName: local-storage
   accessModes:
     - ReadOnlyMany
@@ -29,7 +104,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: okami-wiki-volume-ro-claim
 spec:
-  volumeName: okami-wiki-volume
+  volumeName: okami-wiki-ro-volume
   storageClassName: local-storage
   accessModes:
     - ReadOnlyMany
