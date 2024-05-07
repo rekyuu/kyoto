@@ -125,7 +125,7 @@ spec:
           restartPolicy: Never
           containers:
             - name: postgresql-backup
-              image: ghcr.io/rekyuu/backup-tools/postgresql-backup:1.0.1
+              image: ghcr.io/rekyuu/backup-tools/postgresql-backup:1.0.2
               imagePullPolicy: IfNotPresent
               env:
                 - name: AWS_S3_BUCKET
@@ -177,7 +177,7 @@ spec:
           restartPolicy: Never
           containers:
             - name: vaultwarden-data-backup
-              image: ghcr.io/rekyuu/backup-tools/directory-backup:1.0.1
+              image: ghcr.io/rekyuu/backup-tools/directory-backup:1.0.2
               imagePullPolicy: IfNotPresent
               env:
                 - name: AWS_S3_BUCKET
@@ -218,7 +218,7 @@ spec:
           restartPolicy: Never
           containers:
             - name: octopath-wiki-assets-backup
-              image: ghcr.io/rekyuu/backup-tools/directory-backup:1.0.1
+              image: ghcr.io/rekyuu/backup-tools/directory-backup:1.0.2
               imagePullPolicy: IfNotPresent
               env:
                 - name: AWS_S3_BUCKET
@@ -259,7 +259,7 @@ spec:
           restartPolicy: Never
           containers:
             - name: okami-wiki-assets-backup
-              image: ghcr.io/rekyuu/backup-tools/directory-backup:1.0.1
+              image: ghcr.io/rekyuu/backup-tools/directory-backup:1.0.2
               imagePullPolicy: IfNotPresent
               env:
                 - name: AWS_S3_BUCKET
