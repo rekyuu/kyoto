@@ -290,7 +290,7 @@ spec:
           command: ["sh", "-c", "chown -R nobody:nobody /var/www/html"]
           volumeMounts:
             - mountPath: "/var/www/html/images"
-              name: octopath-wiki-volume
+              name: octopath-wiki-volume-mount
               subPath: images
       volumes:
         - name: octopath-wiki-config-mount
