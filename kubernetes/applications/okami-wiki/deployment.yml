@@ -278,14 +278,6 @@ spec:
                 secretKeyRef:
                   name: okami-wiki-secrets
                   key: discord-webhook-url
-          initContainers:
-            - name: fix-volume-mount-permissions
-              image: busybox
-              command: ["sh", "-c", "chown -R nobody:nobody /var/www/html"]
-              volumeMounts:
-                - mountPath: "/var/www/html/images"
-                  name: okami-wiki-volume
-                  subPath: images
           volumeMounts:
             - mountPath: "/var/www/html/LocalSettings.php"
               name: okami-wiki-config-mount
@@ -298,6 +290,14 @@ spec:
               subPath: favicon.ico
             - mountPath: "/var/www/html/images"
               name: okami-wiki-volume-mount
+              subPath: images
+      initContainers:
+        - name: fix-volume-mount-permissions
+          image: busybox
+          command: ["sh", "-c", "chown -R nobody:nobody /var/www/html"]
+          volumeMounts:
+            - mountPath: "/var/www/html/images"
+              name: okami-wiki-volume
               subPath: images
       volumes:
         - name: okami-wiki-config-mount

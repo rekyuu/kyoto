@@ -271,14 +271,6 @@ spec:
                 secretKeyRef:
                   name: octopath-wiki-secrets
                   key: postgres-schema
-          initContainers:
-            - name: fix-volume-mount-permissions
-              image: busybox
-              command: ["sh", "-c", "chown -R nobody:nobody /var/www/html"]
-              volumeMounts:
-                - mountPath: "/var/www/html/images"
-                  name: octopath-wiki-volume
-                  subPath: images
           volumeMounts:
             - mountPath: "/var/www/html/LocalSettings.php"
               name: octopath-wiki-config-mount
@@ -291,6 +283,14 @@ spec:
               subPath: favicon.ico
             - mountPath: "/var/www/html/images"
               name: octopath-wiki-volume-mount
+              subPath: images
+      initContainers:
+        - name: fix-volume-mount-permissions
+          image: busybox
+          command: ["sh", "-c", "chown -R nobody:nobody /var/www/html"]
+          volumeMounts:
+            - mountPath: "/var/www/html/images"
+              name: octopath-wiki-volume
               subPath: images
       volumes:
         - name: octopath-wiki-config-mount
