@@ -194,12 +194,6 @@ data:
     # End of automatically generated settings.
     # Add more configuration options below.
 
-    $wgDBerrorLog = '/var/log/nginx/wiki-dberror.log';
-    $wgDebugLogGroups = array(
-      'exception' => '/var/log/nginx/wiki-exception.log',
-      'resourceloader' => '/var/log/nginx/wiki-resourceloader.log',
-    );
-
     $wgSessionCacheType = CACHE_DB;
     $wgCookieSecure = true;
 
