@@ -13,6 +13,7 @@ resource "hcloud_ssh_key" "private" {
 resource "hcloud_network" "network" {
   name = "network"
   ip_range = "10.0.0.0/16"
+  delete_protection = true
 }
 
 resource "hcloud_network_subnet" "network_subnet" {
@@ -28,6 +29,7 @@ resource "hcloud_primary_ip" "main_ipv4" {
   datacenter = "ash-dc1"
   assignee_type = "server"
   auto_delete = false
+  delete_protection = true
 }
 
 resource "hcloud_primary_ip" "main_ipv6" {
@@ -36,6 +38,7 @@ resource "hcloud_primary_ip" "main_ipv6" {
   datacenter = "ash-dc1"
   assignee_type = "server"
   auto_delete = false
+  delete_protection = true
 }
 
 resource "hcloud_primary_ip" "database_ipv4" {
@@ -44,6 +47,7 @@ resource "hcloud_primary_ip" "database_ipv4" {
   datacenter = "ash-dc1"
   assignee_type = "server"
   auto_delete = false
+  delete_protection = true
 }
 
 resource "hcloud_primary_ip" "database_ipv6" {
@@ -52,9 +56,10 @@ resource "hcloud_primary_ip" "database_ipv6" {
   datacenter = "ash-dc1"
   assignee_type = "server"
   auto_delete = false
+  delete_protection = true
 }
 
-// Create the firewall
+// Create the firewalls
 resource "hcloud_firewall" "public_firewall" {
   name = "public-firewall"
   
@@ -148,6 +153,8 @@ resource "random_string" "identity_file" {
 // Create the main server
 resource "hcloud_server" "main_server" {
   depends_on = [ hcloud_network_subnet.network_subnet ]
+  delete_protection = true
+  rebuild_protection = true
 
   lifecycle {
     ignore_changes = [
@@ -350,6 +357,8 @@ spec:
 // Create the database server
 resource "hcloud_server" "database_server" {
   depends_on = [ hcloud_network_subnet.network_subnet ]
+  delete_protection = true
+  rebuild_protection = true
 
   lifecycle {
     ignore_changes = [

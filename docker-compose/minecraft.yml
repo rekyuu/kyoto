@@ -1,0 +1,23 @@
+services:
+  papermc:
+    image: marctv/minecraft-papermc-server:1.20.6
+    restart: always
+    ports:
+      - 25565:25565
+    volumes:
+      - ./papermc-data:/data
+    environment:
+      PUID: 1000
+      PGID: 1000
+    stdin_open: true
+    tty: true
+  caddy:
+    image: caddy:2.8.4-alpine
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - $PWD/caddy-data:/data
+      - $PWD/caddy-config:/config
+      - $PWD/Caddyfile:/etc/caddy/Caddyfile
