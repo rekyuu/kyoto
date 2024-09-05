@@ -1,3 +1,3 @@
 mc-map.riichi.me {
-    reverse_proxy papermc:8080
+    reverse_proxy minecraft:8123
 }
