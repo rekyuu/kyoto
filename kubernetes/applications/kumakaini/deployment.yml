@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: kumakaini-request-processor
-          image: ghcr.io/rekyuu/kumakaini-request-processor:3.1.1
+          image: ghcr.io/rekyuu/kumakaini-request-processor:3.1.2
           imagePullPolicy: Always
           env:
             - name: REDIS_HOST
