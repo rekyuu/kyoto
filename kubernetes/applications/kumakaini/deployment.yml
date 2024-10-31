@@ -45,7 +45,7 @@ spec:
             - name: OPENAI_MODEL
               value: gpt-4-turbo
             - name: OPENAI_PROMPT_TOKEN_LIMIT
-              value: "256"
+              value: "2048"
             - name: POSTGRES_HOST
               valueFrom:
                 secretKeyRef:
