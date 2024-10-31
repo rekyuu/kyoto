@@ -43,7 +43,7 @@ spec:
                   name: kuma-secrets
                   key: openai-api-key
             - name: OPENAI_MODEL
-              value: gpt-3.5
+              value: gpt-4
             - name: OPENAI_PROMPT_TOKEN_LIMIT
               value: "256"
             - name: POSTGRES_HOST
