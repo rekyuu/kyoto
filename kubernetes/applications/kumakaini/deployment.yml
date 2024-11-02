@@ -42,10 +42,6 @@ spec:
                 secretKeyRef:
                   name: kuma-secrets
                   key: openai-api-key
-            - name: OPENAI_MODEL
-              value: gpt-4-turbo
-            - name: OPENAI_PROMPT_TOKEN_LIMIT
-              value: "2048"
             - name: POSTGRES_HOST
               valueFrom:
                 secretKeyRef:
