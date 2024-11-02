@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: kumakaini-request-processor
-          image: ghcr.io/rekyuu/kumakaini-request-processor:3.1.3
+          image: ghcr.io/rekyuu/kumakaini-request-processor:3.2.0
           imagePullPolicy: Always
           env:
             - name: REDIS_HOST
@@ -91,7 +91,7 @@ spec:
     spec:
       containers:
         - name: kumakaini-discord
-          image: ghcr.io/rekyuu/kumakaini-discord:3.1.1
+          image: ghcr.io/rekyuu/kumakaini-discord:3.2.0
           imagePullPolicy: Always
           env:
             - name: REDIS_HOST
@@ -166,7 +166,7 @@ spec:
     spec:
       containers:
         - name: kumakaini-telegram
-          image: ghcr.io/rekyuu/kumakaini-telegram:3.1.1
+          image: ghcr.io/rekyuu/kumakaini-telegram:3.2.0
           imagePullPolicy: Always
           env:
             - name: REDIS_HOST
