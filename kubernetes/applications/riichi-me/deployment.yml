@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: riichi-me
-          image: ghcr.io/rekyuu/riichi-me:2.0.0
+          image: ghcr.io/rekyuu/riichi-me:2.0.1
           imagePullPolicy: Always
           ports:
             - containerPort: 80
