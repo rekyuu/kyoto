@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: rekyuu-co
-          image: ghcr.io/rekyuu/rekyuu-co:latest
+          image: ghcr.io/rekyuu/rekyuu-co:2.0.0
           imagePullPolicy: Always
           ports:
             - containerPort: 80

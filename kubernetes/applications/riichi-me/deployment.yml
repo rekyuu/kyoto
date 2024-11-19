@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: riichi-me
-          image: ghcr.io/rekyuu/riichi-me:latest
+          image: ghcr.io/rekyuu/riichi-me:2.0.0
           imagePullPolicy: Always
           ports:
             - containerPort: 80
@@ -49,6 +49,12 @@ spec:
           port: 80
     - kind: Rule
       match: Host(`riichi.me`)
+      priority: 10
+      services:
+        - name: riichi-me
+          port: 80
+    - kind: Rule
+      match: Host(`rekyuu.riichi.me`)
       priority: 10
       services:
         - name: riichi-me
