@@ -267,3 +267,8 @@ spec:
                 secretKeyRef:
                   name: kuma-secrets
                   key: twitch-access-token
+            - name: TELEGRAM_ADMIN_ID
+              valueFrom:
+                secretKeyRef:
+                  name: kuma-secrets
+                  key: telegram-admin-id
