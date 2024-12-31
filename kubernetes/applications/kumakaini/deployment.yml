@@ -222,7 +222,7 @@ spec:
     spec:
       containers:
         - name: kumakaini-twitch
-          image: ghcr.io/rekyuu/kumakaini-twitch:3.5.5
+          image: ghcr.io/rekyuu/kumakaini-twitch:3.5.6
           imagePullPolicy: Always
           env:
             - name: REDIS_HOST
