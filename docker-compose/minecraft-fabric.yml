@@ -13,17 +13,52 @@ services:
       EULA: "TRUE"
       VERSION: "1.20.1"
       MAX_MEMORY: 8G
+      MODRINTH_LOADER: fabric
+      MODRINTH_ALLOWED_VERSION_TYPE: beta
       MODRINTH_DOWNLOAD_DEPENDENCIES: required
       MODRINTH_PROJECTS: |-
+        bellsandwhistles
+        betterdays
+        cobbled-shiny-particles
+        cobblefoods
         cobblemon
-        cobbledex
+        cobblemon-capture-xp
+        cobblemon-fight-or-flight
+        cobblemon-loot-balls
+        cobblemon-pokedex
+        cobblemon-pokenav
+        cobblemon-unchained
+        cobblemon-whiteout
+        cobblemounts
+        cobblepedia
         cobbreeding
-        create-fabric:beta
-        dynmap:beta
-        jei
+        copycats
+        corgilib
+        create-big-cannons
+        create-cobblemon-industrialized
+        create-enchantment-industry-fabric
+        create-fabric
+        create-food
+        create-goggles
+        create-railways-navigator
+        create-slugma
+        dynmap
+        enhanced-celestials
+        fabric-seasons
+        fabric-seasons-delight-compat
+        fabric-seasons-extras
+        farmers-delight-refabricated
+        gravestones
+        gravestones-fix
+        immersive-snow
         inventory-sorting
+        jade
+        jei
+        multiworld
         simple-backup
-        simple-death-chest
+        slice-and-dice
+        snow-real-magic
+        waystones
     stdin_open: true
     tty: true
   caddy:
@@ -35,4 +70,4 @@ services:
     volumes:
       - $HOME/services/caddy/caddy-data:/data
       - $HOME/services/caddy/caddy-config:/config
-      - $PWD/Caddyfile:/etc/caddy/Caddyfile
+      - $HOME/services/caddy/Caddyfile:/etc/caddy/Caddyfile
