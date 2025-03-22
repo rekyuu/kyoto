@@ -1,0 +1,34 @@
+[Architectury](https://modrinth.com/mod/lhGA9TYQ) [13.0.8] by shedaniel
+[Balm](https://modrinth.com/mod/MBAkmtvl) [21.0.33] by BlayTheNinth
+[BetterDays](https://modrinth.com/mod/tPLE214j) [3.1.1.1] by wendall911
+[Cobblemon](https://modrinth.com/mod/MdwFAVRL) [1.6.1+1.21.1] by The Cobblemon Team
+[Cobblemon Capture XP](https://modrinth.com/mod/LBl4Qguc) [1.6-neoforge-1.0.0] by timinc aka Timothy Metcalfe
+[Cobblemon Fight or Flight](https://modrinth.com/mod/cTdIg5HZ) [0.7.6] by rufia,LyquidQrystal
+[Cobblemon: Ride On!](https://modrinth.com/mod/vXREhDPP) [0.2.2+1.21.1] by StarliteHeart
+[CobblemonIntegrations](https://modrinth.com/mod/NPCfuUI4) [1.1.2] by Arcaryx, 2ScoopsPlz
+[Cobbreeding](https://modrinth.com/mod/ItmVb4zY) [1.8.9] by 
+[CorgiLib](https://modrinth.com/mod/ziOp6EO8) [5.0.0.3] by Corgi Taco
+[CraftPresence](https://modrinth.com/mod/DFqQfIBR) [2.5.3] by CDAGaming
+[Create](https://modrinth.com/mod/LNytGWDc) [6.0.4] by simibubi
+[Create: Bells & Whistles](https://modrinth.com/mod/gJ5afkVv) [0.4.7-1.21.1] by lev
+[Enhaced Celestials Shader Support](https://modrinth.com/mod/4yCR7xwF) [1.21.1+1.1-SNAPSHOT] by harleylizard
+[Enhanced Celestials](https://modrinth.com/mod/2rL16t1O) [6.0.1.3] by Corgi Taco
+[Farmer's Delight](https://modrinth.com/mod/R2OftAxM) [1.2.7] by vectorwing
+[GlitchCore](https://modrinth.com/mod/s3dmwKy5) [2.1.0.0] by Adubbz
+[Iris](https://modrinth.com/mod/YL57xq9U) [1.8.8+mc1.21.1] by coderbot, IMS212
+[Jade](https://modrinth.com/mod/nvQzSEkH) [15.10.0+neoforge] by Snownee
+[JamLib](https://modrinth.com/mod/IYY9Siz8) [1.3.2+1.21.1] by Jamalam
+[Journeymap](https://modrinth.com/mod/lfHFW1mp) [1.21.1-6.0.0-beta.41] by Techbrew, Mysticdrew
+[Just Enough Items](https://modrinth.com/mod/u6dRKJwZ) [19.21.0.247] by mezz
+[Just Zoom](https://modrinth.com/mod/iAiqcykM) [2.1.0] by Keksuccino
+[Kiwi Library](https://modrinth.com/mod/ufdDoWPd) [15.4.2+neoforge] by Snownee
+[Konkrete](https://modrinth.com/mod/J81TRJWm) [1.9.9] by Keksuccino
+[Kotlin for Forge](https://modrinth.com/mod/ordsPcFz) [uZAwdzAR] by 
+[Nature's Compass](https://modrinth.com/mod/fPetb5Kh) [1.21.1-3.0.2-neoforge] by ChaosTheDude
+[SeasonHUD](https://modrinth.com/mod/VNjUn3NA) [1.12.5] by IanAnderson
+[Serene Seasons](https://modrinth.com/mod/e0bNACJD) [10.1.0.3] by Adubbz, Forstride
+[Snow! Real Magic!](https://modrinth.com/mod/iJNje1E8) [11.1.1+neoforge] by Snownee, minzhi, WZD
+[Sodium](https://modrinth.com/mod/AANobbMI) [0.6.9+mc1.21.1] by JellySquid (jellysquid3), IMS212
+[Sort It Out!](https://modrinth.com/mod/jcOSOvm1) [1.1.0+1.21.1] by Jamalam
+[UniLib](https://modrinth.com/mod/nT86WUER) [1.0.5] by CDAGaming
+[Waystones](https://modrinth.com/mod/LOpKHB2A) [21.1.13] by BlayTheNinth

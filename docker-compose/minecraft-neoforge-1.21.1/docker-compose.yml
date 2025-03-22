@@ -1,0 +1,73 @@
+services:
+  minecraft:
+    image: itzg/minecraft-server
+    restart: always
+    ports:
+      - 25565:25565
+    volumes:
+      - ./minecraft-data:/data
+      - ./config/AdvancedBackups.properties:/data/config/AdvancedBackups.properties
+      - ./config/cobblemon/main.json:/data/config/cobblemon/main.json
+      - ./config/cobblemon/starters.json:/data/config/cobblemon/starters.json
+      - ./config/journeymap/journeymap.server.global.config:/data/journeymap/server/6.0/journeymap.server.global.config
+    environment:
+      UID: 1000
+      GID: 1000
+      TYPE: NEOFORGE
+      NEOFORGE_VERSION: "21.1.138"
+      EULA: "TRUE"
+      VERSION: "1.21.1"
+      MAX_MEMORY: 8G
+      MODRINTH_LOADER: neoforge
+      MODRINTH_ALLOWED_VERSION_TYPE: alpha
+      MODRINTH_DOWNLOAD_DEPENDENCIES: required
+      RCON_CMDS_STARTUP: |-
+        /gamerule doImmediateRespawn true
+        /gamerule doInsomnia false
+        /gamerule forgiveDeadPlayers true
+        /gamerule keepInventory true
+      # Mods that I want that aren't updated yet 
+      #   copycats
+      #   create-big-cannons
+      #   create-cobblemon-industrialized
+      #   create-enchantment-industry
+      #   create-food
+      #   create-goggles
+      #   create-slugma
+      #   dynmap
+      #   slice-and-dice
+      MODRINTH_PROJECTS: |-
+        advanced-backups
+        bellsandwhistles
+        betterdays
+        cobblemon
+        cobblemon-capture-xp
+        cobblemon-fight-or-flight-reborn
+        cobblemon-integrations
+        cobblemon-ride-on!
+        cobblemon-whiteout
+        cobbreeding
+        create
+        enhanced-celestials:IEE0ZwQF
+        farmers-delight
+        immersive-snow
+        jade
+        jei
+        journeymap
+        natures-compass
+        serene-seasons
+        snow-real-magic
+        sort-it-out
+        waystones:UsjWHpLD
+    stdin_open: true
+    tty: true
+  caddy:
+    image: caddy:2.8.4-alpine
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - $HOME/services/caddy/caddy-data:/data
+      - $HOME/services/caddy/caddy-config:/config
+      - $HOME/services/caddy/Caddyfile:/etc/caddy/Caddyfile
