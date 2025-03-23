@@ -1,0 +1,3 @@
+mc-map.riichi.me {
+    reverse_proxy minecraft:8100
+}

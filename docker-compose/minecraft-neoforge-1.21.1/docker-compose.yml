@@ -4,9 +4,11 @@ services:
     restart: always
     ports:
       - 25565:25565
+      # - 8100:8100 # BlueMap
     volumes:
       - ./minecraft-data:/data
       - ./config/AdvancedBackups.properties:/data/config/AdvancedBackups.properties
+      - ./config/bluemap/core.conf:/data/config/bluemap/core.conf
       - ./config/cobblemon/main.json:/data/config/cobblemon/main.json
       - ./config/cobblemon/starters.json:/data/config/cobblemon/starters.json
       - ./config/journeymap/journeymap.server.global.config:/data/journeymap/server/6.0/journeymap.server.global.config
@@ -40,6 +42,7 @@ services:
         advanced-backups
         bellsandwhistles
         betterdays
+        bluemap
         cobblemon
         cobblemon-capture-xp
         cobblemon-fight-or-flight-reborn

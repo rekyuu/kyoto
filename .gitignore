@@ -37,4 +37,6 @@ override.tf.json
 terraform.rc
 
 # Minecraft
+**/caddy-config/*
+**/caddy-data/*
 **/minecraft-data/*
