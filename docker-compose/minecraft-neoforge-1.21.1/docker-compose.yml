@@ -75,4 +75,4 @@ services:
     volumes:
       - $HOME/services/caddy/caddy-data:/data
       - $HOME/services/caddy/caddy-config:/config
-      - $HOME/services/caddy/Caddyfile:/etc/caddy/Caddyfile
+      - ./Caddyfile:/etc/caddy/Caddyfile
