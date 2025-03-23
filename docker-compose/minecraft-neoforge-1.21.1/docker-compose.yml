@@ -7,6 +7,8 @@ services:
       # - 8100:8100 # BlueMap
     volumes:
       - ./minecraft-data:/data
+      - ./server-icon.png:/data/server-icon.png
+      - ./server.properties:/data/server.properties
       - ./config/AdvancedBackups.properties:/data/config/AdvancedBackups.properties
       - ./config/bluemap/core.conf:/data/config/bluemap/core.conf
       - ./config/cobblemon/main.json:/data/config/cobblemon/main.json
