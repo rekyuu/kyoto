@@ -42,6 +42,7 @@ services:
       #   slice-and-dice
       MODRINTH_PROJECTS: |-
         advanced-backups
+        balm:NGTcsYW5
         bellsandwhistles
         betterdays
         bluemap
