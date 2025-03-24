@@ -40,7 +40,6 @@ services:
       #   create-slugma
       #   dynmap
       #   slice-and-dice
-      #   snow-real-magic # might be busted
       MODRINTH_PROJECTS: |-
         advanced-backups
         balm:NGTcsYW5
@@ -64,6 +63,7 @@ services:
         natures-compass
         sdlink
         serene-seasons
+        snow-real-magic
         sort-it-out
         waystones:UsjWHpLD
     stdin_open: true
