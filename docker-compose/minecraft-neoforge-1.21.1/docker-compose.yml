@@ -60,6 +60,7 @@ services:
         jei
         journeymap
         natures-compass
+        sdlink
         serene-seasons
         snow-real-magic
         sort-it-out
