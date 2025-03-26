@@ -41,6 +41,7 @@ services:
       #   slice-and-dice
       MODRINTH_PROJECTS: |-
         advanced-backups
+        amendments
         balm:NGTcsYW5
         bellsandwhistles
         betterdays
