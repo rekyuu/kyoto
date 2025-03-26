@@ -38,7 +38,6 @@ services:
       #   create-food
       #   create-goggles
       #   create-slugma
-      #   dynmap
       #   slice-and-dice
       MODRINTH_PROJECTS: |-
         advanced-backups
@@ -54,7 +53,6 @@ services:
         cobblemon-whiteout
         cobbreeding
         create
-        enhanced-celestials:IEE0ZwQF
         farmers-delight
         immersive-snow
         jade
@@ -65,6 +63,7 @@ services:
         serene-seasons
         snow-real-magic
         sort-it-out
+        supplementaries
         waystones:UsjWHpLD
     stdin_open: true
     tty: true
