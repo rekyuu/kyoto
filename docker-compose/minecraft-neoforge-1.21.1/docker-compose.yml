@@ -38,6 +38,7 @@ services:
       #   create-food
       #   create-goggles
       #   create-slugma
+      #   create-steam-n-rails
       #   slice-and-dice
       MODRINTH_PROJECTS: |-
         advanced-backups
