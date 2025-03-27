@@ -1,3 +1,4 @@
+- [Amendments](https://modrinth.com/mod/6iTJugQR) [1.21-1.2.24] by MehVahdJukaar, Plantkillable
 - [Architectury](https://modrinth.com/mod/lhGA9TYQ) [13.0.8] by shedaniel
 - [Balm](https://modrinth.com/mod/MBAkmtvl) [21.0.33] by BlayTheNinth
 - [BetterDays](https://modrinth.com/mod/tPLE214j) [3.1.1.1] by wendall911
@@ -11,11 +12,10 @@
 - [CraftPresence](https://modrinth.com/mod/DFqQfIBR) [2.5.3] by CDAGaming
 - [Create](https://modrinth.com/mod/LNytGWDc) [6.0.4] by simibubi
 - [Create: Bells & Whistles](https://modrinth.com/mod/gJ5afkVv) [0.4.7-1.21.1] by lev
-- [Enhaced Celestials Shader Support](https://modrinth.com/mod/4yCR7xwF) [1.21.1+1.1-SNAPSHOT] by harleylizard
-- [Enhanced Celestials](https://modrinth.com/mod/2rL16t1O) [6.0.1.3] by Corgi Taco
+- [Embeddium](https://modrinth.com/mod/sk9rgfiA) [1.0.15+mc1.21.1] by embeddedt
 - [Farmer's Delight](https://modrinth.com/mod/R2OftAxM) [1.2.7] by vectorwing
 - [GlitchCore](https://modrinth.com/mod/s3dmwKy5) [2.1.0.0] by Adubbz
-- [Iris](https://modrinth.com/mod/YL57xq9U) [1.8.8+mc1.21.1] by coderbot, IMS212
+- [Iris](https://modrinth.com/mod/YL57xq9U) [1.8.1+mc1.21.1] by coderbot, IMS212
 - [Jade](https://modrinth.com/mod/nvQzSEkH) [15.10.0+neoforge] by Snownee
 - [JamLib](https://modrinth.com/mod/IYY9Siz8) [1.3.2+1.21.1] by Jamalam
 - [Journeymap](https://modrinth.com/mod/lfHFW1mp) [1.21.1-6.0.0-beta.41] by Techbrew, Mysticdrew
@@ -24,11 +24,13 @@
 - [Kiwi Library](https://modrinth.com/mod/ufdDoWPd) [15.4.2+neoforge] by Snownee
 - [Konkrete](https://modrinth.com/mod/J81TRJWm) [1.9.9] by Keksuccino
 - [Kotlin for Forge](https://modrinth.com/mod/ordsPcFz) [uZAwdzAR] by 
+- [Monocle](https://modrinth.com/mod/apRGdwku) [McCxFKNu] by 
+- [Moonlight Lib](https://modrinth.com/mod/twkfQtEc) [1.21-2.17.37] by MehVahdJukaar
 - [Nature's Compass](https://modrinth.com/mod/fPetb5Kh) [1.21.1-3.0.2-neoforge] by ChaosTheDude
 - [SeasonHUD](https://modrinth.com/mod/VNjUn3NA) [1.12.5] by IanAnderson
 - [Serene Seasons](https://modrinth.com/mod/e0bNACJD) [10.1.0.3] by Adubbz, Forstride
 - [Snow! Real Magic!](https://modrinth.com/mod/iJNje1E8) [11.1.1+neoforge] by Snownee, minzhi, WZD
-- [Sodium](https://modrinth.com/mod/AANobbMI) [0.6.9+mc1.21.1] by JellySquid (jellysquid3), IMS212
 - [Sort It Out!](https://modrinth.com/mod/jcOSOvm1) [1.1.0+1.21.1] by Jamalam
+- [Supplementaries](https://modrinth.com/mod/fFEIiSDQ) [1.21-3.0.43-beta] by MehVahdJukaar, Plantkillable
 - [UniLib](https://modrinth.com/mod/nT86WUER) [1.0.5] by CDAGaming
 - [Waystones](https://modrinth.com/mod/LOpKHB2A) [21.1.13] by BlayTheNinth
