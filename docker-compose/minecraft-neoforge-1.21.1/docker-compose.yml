@@ -14,6 +14,7 @@ services:
       - ./config/bluemap/core.conf:/data/config/bluemap/core.conf
       - ./config/cobblemon/main.json:/data/config/cobblemon/main.json
       - ./config/cobblemon/starters.json:/data/config/cobblemon/starters.json
+      - ./config/cobbleride/config.json:/data/config/cobbleride/config.json
       - ./config/journeymap/journeymap.server.global.config:/data/journeymap/server/6.0/journeymap.server.global.config
     environment:
       UID: 1000
@@ -42,32 +43,32 @@ services:
       #   create-steam-n-rails
       #   slice-and-dice
       MODRINTH_PROJECTS: |-
-        advanced-backups
-        amendments
-        balm:NGTcsYW5
-        bellsandwhistles
-        betterdays
-        bluemap
-        cobblemon
-        cobblemon-capture-xp
-        cobblemon-fight-or-flight-reborn
-        cobblemon-integrations
-        cobblemon-ride-on!
-        cobblemon-whiteout
-        cobbreeding
+        advanced-backups:ufIaRDFo
+        amendments:lbqEyGoA
+        balm:lKZ9zlPP
+        bellsandwhistles:w0mifib8
+        betterdays:tDStMRRk
+        bluemap:8iJcPOHJ
+        cobblemon:eLcb8xod
+        cobblemon-capture-xp:vYUq8ykQ
+        cobblemon-fight-or-flight-reborn:rIehkMg8
+        cobblemon-integrations:8GaivzM4
+        cobblemon-ride-on!:7QDHVakw
+        cobblemon-whiteout:6jc4d2db
+        cobbreeding:zQovj6Uq
         corgilib:69UDOQnE
-        create
-        farmers-delight
-        immersive-snow
-        jade
-        jei
-        journeymap
-        natures-compass
-        sdlink
-        serene-seasons
-        snow-real-magic
-        sort-it-out
-        supplementaries
+        create:5LpL274U
+        farmers-delight:XhhT3PXv
+        immersive-snow:Of60m2yB
+        inventory-tweaks-refoxed:tcTciTmQ
+        jade:jBPaSUDN
+        jei:TxS03dKM
+        journeymap:EydYCX2q
+        natures-compass:AqEmYPpi
+        sdlink:gXgTfzl5
+        serene-seasons:SPj5bJoM
+        snow-real-magic:4DmOsKlN
+        supplementaries:YtD69nSM
         waystones:UsjWHpLD
     stdin_open: true
     tty: true
