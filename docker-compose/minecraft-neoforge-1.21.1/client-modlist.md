@@ -15,6 +15,7 @@
 - [Embeddium](https://modrinth.com/mod/sk9rgfiA) [1.0.15+mc1.21.1] by embeddedt
 - [Farmer's Delight](https://modrinth.com/mod/R2OftAxM) [1.2.7] by vectorwing
 - [GlitchCore](https://modrinth.com/mod/s3dmwKy5) [2.1.0.0] by Adubbz
+- [Inventory Tweaks Refoxed](https://modrinth.com/mod/uqnMI1kq) [1.21.1-1.2.0] by LobsterJonn (Current maintainer)
 - [Iris](https://modrinth.com/mod/YL57xq9U) [1.8.1+mc1.21.1] by coderbot, IMS212
 - [Jade](https://modrinth.com/mod/nvQzSEkH) [15.10.0+neoforge] by Snownee
 - [JamLib](https://modrinth.com/mod/IYY9Siz8) [1.3.2+1.21.1] by Jamalam
@@ -30,7 +31,6 @@
 - [SeasonHUD](https://modrinth.com/mod/VNjUn3NA) [1.12.5] by IanAnderson
 - [Serene Seasons](https://modrinth.com/mod/e0bNACJD) [10.1.0.3] by Adubbz, Forstride
 - [Snow! Real Magic!](https://modrinth.com/mod/iJNje1E8) [11.1.1+neoforge] by Snownee, minzhi, WZD
-- [Sort It Out!](https://modrinth.com/mod/jcOSOvm1) [1.1.0+1.21.1] by Jamalam
 - [Supplementaries](https://modrinth.com/mod/fFEIiSDQ) [1.21-3.0.43-beta] by MehVahdJukaar, Plantkillable
 - [UniLib](https://modrinth.com/mod/nT86WUER) [1.0.5] by CDAGaming
 - [Waystones](https://modrinth.com/mod/LOpKHB2A) [21.1.13] by BlayTheNinth
