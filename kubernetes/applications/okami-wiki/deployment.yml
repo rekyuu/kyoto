@@ -97,12 +97,13 @@ data:
     $wgPasswordSender = getenv("MW_EMAIL");
 
     $wgSMTP = array(
-      'host'     => "ssl://smtp.gmail.com", 
-      'IDHost'   => "gmail.com",
-      'port'     => 465,
-      'auth'     => true,
-      'username' => getenv("MW_EMAIL"),
-      'password' => getenv("MW_EMAIL_PASSWORD")
+      'host'      => "ssl://smtp.gmail.com",
+      'IDHost'    => "speedruns.wiki",
+      'localhost' => "speedruns.wiki",
+      'port'      => 465,
+      'auth'      => true,
+      'username'  => getenv("MW_EMAIL"),
+      'password'  => getenv("MW_EMAIL_PASSWORD")
     );
 
     $wgEnotifUserTalk = true; # UPO
