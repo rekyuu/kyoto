@@ -95,6 +95,7 @@ data:
 
     $wgEmergencyContact = getenv("MW_EMAIL");
     $wgPasswordSender = getenv("MW_EMAIL");
+    $wgPasswordReminderResendTime = 0;
 
     $wgSMTP = array(
       'host'      => "ssl://smtp.gmail.com", 
