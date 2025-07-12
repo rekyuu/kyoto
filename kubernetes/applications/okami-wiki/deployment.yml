@@ -205,6 +205,10 @@ data:
     wfLoadExtension( 'Discord' );
     $wgDiscordWebhookURL = [ getenv("DISCORD_WEBHOOK_URL") ];
     $wgDiscordMaxChars = 500;
+
+    wfLoadExtension( 'ParserFunctions' );
+    $wgPFEnableStringFunctions = true;
+    $wgPFStringLengthLimit = 1000;
 ---
 apiVersion: apps/v1
 kind: Deployment
