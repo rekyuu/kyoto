@@ -37,11 +37,6 @@ spec:
                 secretKeyRef:
                   name: kuma-secrets
                   key: danbooru-api-key
-            - name: OPENAI_API_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: kuma-secrets
-                  key: openai-api-key
             - name: POSTGRES_HOST
               valueFrom:
                 secretKeyRef:
