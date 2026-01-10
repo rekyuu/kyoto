@@ -1,10 +1,10 @@
 services:
   minecraft:
-    image: itzg/minecraft-server
+    image: itzg/minecraft-server:java21-alpine
     restart: always
     ports:
       - 25565:25565
-      # - 8100:8100 # BlueMap
+      - 8100:8100 # BlueMap
     volumes:
       - ./minecraft-data:/data
       - ./server-icon.png:/data/server-icon.png
@@ -16,12 +16,12 @@ services:
       - ./config/cobblemon/starters.json:/data/config/cobblemon/starters.json
       - ./config/cobbleride/config.json:/data/config/cobbleride/config.json
       - ./config/journeymap/journeymap.server.global.config:/data/journeymap/server/6.0/journeymap.server.global.config
-      - ./config/waystones-common.toml:/data/config/waystones-common.toml
+      # - ./config/waystones-common.toml:/data/config/waystones-common.toml
     environment:
       UID: 1000
       GID: 1000
       TYPE: NEOFORGE
-      NEOFORGE_VERSION: "21.1.138"
+      NEOFORGE_VERSION: "21.1.218"
       EULA: "TRUE"
       VERSION: "1.21.1"
       MAX_MEMORY: 8G
@@ -34,43 +34,60 @@ services:
         /gamerule forgiveDeadPlayers true
         /gamerule keepInventory true
       # Mods that I want that aren't updated yet 
-      #   copycats
-      #   create-big-cannons
-      #   create-cobblemon-industrialized
-      #   create-enchantment-industry
-      #   create-food
-      #   create-goggles
-      #   create-slugma
-      #   create-steam-n-rails
-      #   slice-and-dice
+      #  create-big-cannons
+      #  create-cobblemon-industrialized
+      #  create-slugma
+      #  create-steam-n-rails
+      #   
+      # Meh
+      #  cobblemon:Uz1QF4Md
+      #  cobblemon-capture-xp:MoNv5bhj
+      #  cobblemon-fight-or-flight-reborn:51u1DYkU
+      #  cobblemon-integrations:J2XZJowS
+      #  cobbreeding:LnSjeUiM
+      #  dynamictrees:L4IzopyY
+      #  dynamic-trees-biomes-o-plenty:YZ8VDP0n
+      #  touhou-little-maid:X9LKPySd
+      #  umapyoi:bvdkcOWZ
+      #  umapyoi-delight:O4KN0uvn
+      #  umapyoi-extra-cards:aD0ZkZDw        
+      #  uma_maid:6E08Rzpb
+      #
+      # Causes issues/doesn't work
+      #  cobblemon-whiteout:Zv6g33JZ
+      #  immersive-snow:Of60m2yB
+      #  multiworld:ibarJFoZ
       MODRINTH_PROJECTS: |-
         advanced-backups:ufIaRDFo
-        amendments:lbqEyGoA
-        balm:lKZ9zlPP
+        amendments:uo2aSjsU
         bellsandwhistles:w0mifib8
-        betterdays:tDStMRRk
+        betterdays:O3sUSfWA
         bluemap:8iJcPOHJ
-        cobblemon:eLcb8xod
-        cobblemon-capture-xp:vYUq8ykQ
-        cobblemon-fight-or-flight-reborn:rIehkMg8
-        cobblemon-integrations:8GaivzM4
-        cobblemon-ride-on!:7QDHVakw
-        cobblemon-whiteout:6jc4d2db
-        cobbreeding:zQovj6Uq
-        corgilib:69UDOQnE
-        create:5LpL274U
-        farmers-delight:XhhT3PXv
-        immersive-snow:Of60m2yB
+        biomes-o-plenty:8vIRXPpR
+        chalk-mod:IttdMTXB
+        copycats:kecZ0sl7
+        create:n7NADxiG
+        create-enchantment-industry:RhbACzlM
+        create-food:ggrcrZ0n
+        create-goggles:Co24W2FL
+        explorers-compass:EpWAw9bz
+        exposure:WYaaE1QE
+        exposure-catalog:OOrLeZEH
+        exposure-polaroid:ApvtFYak
+        farmers-delight:opCbq7uB
+        gears-n-kinetics:1SG2AP9A
         inventory-tweaks-refoxed:tcTciTmQ
-        jade:jBPaSUDN
-        jei:TxS03dKM
-        journeymap:EydYCX2q
+        jade:VGRMP69T
+        jei:YAcQ6elZ
+        journeymap:3AZpZoxN
         natures-compass:AqEmYPpi
-        sdlink:gXgTfzl5
+        not-interested:IWvl2m8o
+        sdlink:VADIv5pg
         serene-seasons:SPj5bJoM
-        snow-real-magic:4DmOsKlN
-        supplementaries:YtD69nSM
-        waystones:UsjWHpLD
+        slice-and-dice:DwseRoo3
+        snow-real-magic:bRJ7ymMR
+        supplementaries:Q3zTcprv
+        waystones:f4A1aY3t
     stdin_open: true
     tty: true
   caddy:

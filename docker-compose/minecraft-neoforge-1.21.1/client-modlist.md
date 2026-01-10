@@ -1,36 +1,44 @@
-- [Amendments](https://modrinth.com/mod/6iTJugQR) [1.21-1.2.24] by MehVahdJukaar, Plantkillable
+- [Amendments](https://modrinth.com/mod/6iTJugQR) [1.21-2.0.13] by MehVahdJukaar, Plantkillable
 - [Architectury](https://modrinth.com/mod/lhGA9TYQ) [13.0.8] by shedaniel
-- [Balm](https://modrinth.com/mod/MBAkmtvl) [21.0.33] by BlayTheNinth
-- [BetterDays](https://modrinth.com/mod/tPLE214j) [3.1.1.1] by wendall911
-- [Cobblemon](https://modrinth.com/mod/MdwFAVRL) [1.6.1+1.21.1] by The Cobblemon Team
-- [Cobblemon Capture XP](https://modrinth.com/mod/LBl4Qguc) [1.6-neoforge-1.0.0] by timinc aka Timothy Metcalfe
-- [Cobblemon Fight or Flight](https://modrinth.com/mod/cTdIg5HZ) [0.7.6] by rufia,LyquidQrystal
-- [Cobblemon: Ride On!](https://modrinth.com/mod/vXREhDPP) [0.2.2+1.21.1] by StarliteHeart
-- [CobblemonIntegrations](https://modrinth.com/mod/NPCfuUI4) [1.1.2] by Arcaryx, 2ScoopsPlz
-- [Cobbreeding](https://modrinth.com/mod/ItmVb4zY) [1.8.9] by 
-- [CorgiLib](https://modrinth.com/mod/ziOp6EO8) [5.0.0.3] by Corgi Taco
-- [CraftPresence](https://modrinth.com/mod/DFqQfIBR) [2.5.3] by CDAGaming
-- [Create](https://modrinth.com/mod/LNytGWDc) [6.0.4] by simibubi
+- [Balm](https://modrinth.com/mod/MBAkmtvl) [21.0.56] by BlayTheNinth
+- [BetterDays](https://modrinth.com/mod/tPLE214j) [3.3.6.2] by wendall911
+- [Biomes O' Plenty](https://modrinth.com/mod/HXF82T3G) [21.1.0.13] by Adubbz, Forstride
+- [Chalk](https://modrinth.com/mod/YWGP4Y1d) [NONE] by mortuusars
+- [CorgiLib](https://modrinth.com/mod/ziOp6EO8) [5.0.0.7] by Corgi Taco
+- [CraftPresence](https://modrinth.com/mod/DFqQfIBR) [2.7.0] by CDAGaming
+- [Create](https://modrinth.com/mod/LNytGWDc) [6.0.9] by simibubi
+- [Create Goggles](https://modrinth.com/mod/L1RT5SJc) [6.1.1] by Robocraft999
+- [Create Slice & Dice](https://modrinth.com/mod/GmjmRQ0A) [4.2.2] by possible_triangle
 - [Create: Bells & Whistles](https://modrinth.com/mod/gJ5afkVv) [0.4.7-1.21.1] by lev
+- [Create: Copycats+](https://modrinth.com/mod/UT2M39wf) [3.0.4+mc.1.21.1-neoforge] by Lysine, Bennyboy1695, Redcat_XVIII
+- [Create: Dragons Plus](https://modrinth.com/mod/dzb1a5WV) [1.8.5] by DragonsPlus
+- [Create: Enchantment Industry](https://modrinth.com/mod/JWGBpFUP) [2.2.5b] by DragonsPlus
+- [Create: Food](https://modrinth.com/mod/4HnO3el1) [2.0.0a] by average_anime
 - [Embeddium](https://modrinth.com/mod/sk9rgfiA) [1.0.15+mc1.21.1] by embeddedt
-- [Farmer's Delight](https://modrinth.com/mod/R2OftAxM) [1.2.7] by vectorwing
+- [Explorer's Compass](https://modrinth.com/mod/RV1qfVQ8) [1.21.1-3.0.3-neoforge] by ChaosTheDude
+- [Exposure](https://modrinth.com/mod/hB899VmG) [1.9.13] by mortuusars
+- [Exposure Catalog](https://modrinth.com/mod/PWcQ3kcp) [1.1.1] by mortuusars
+- [Exposure Polaroid](https://modrinth.com/mod/WEWiqYkW) [1.1.2] by mortuusars
+- [Farmer's Delight](https://modrinth.com/mod/R2OftAxM) [1.2.9] by vectorwing
+- [Gears n' Kinetics](https://modrinth.com/mod/gEWECBVL) [1.0l] by LopyLuna
 - [GlitchCore](https://modrinth.com/mod/s3dmwKy5) [2.1.0.0] by Adubbz
 - [Inventory Tweaks Refoxed](https://modrinth.com/mod/uqnMI1kq) [1.21.1-1.2.0] by LobsterJonn (Current maintainer)
-- [Iris](https://modrinth.com/mod/YL57xq9U) [1.8.1+mc1.21.1] by coderbot, IMS212
-- [Jade](https://modrinth.com/mod/nvQzSEkH) [15.10.0+neoforge] by Snownee
-- [JamLib](https://modrinth.com/mod/IYY9Siz8) [1.3.2+1.21.1] by Jamalam
-- [Journeymap](https://modrinth.com/mod/lfHFW1mp) [1.21.1-6.0.0-beta.41] by Techbrew, Mysticdrew
-- [Just Enough Items](https://modrinth.com/mod/u6dRKJwZ) [19.21.0.247] by mezz
+- [Iris](https://modrinth.com/mod/YL57xq9U) [1.8.12-snapshot+mc1.21.1-local] by coderbot, IMS212
+- [Jade](https://modrinth.com/mod/nvQzSEkH) [15.10.4+neoforge] by Snownee
+- [Journeymap](https://modrinth.com/mod/lfHFW1mp) [1.21.1-6.0.0-beta.53] by Techbrew, Mysticdrew
+- [Just Enough Items](https://modrinth.com/mod/u6dRKJwZ) [19.27.0.340] by mezz
 - [Just Zoom](https://modrinth.com/mod/iAiqcykM) [2.1.0] by Keksuccino
-- [Kiwi Library](https://modrinth.com/mod/ufdDoWPd) [15.4.2+neoforge] by Snownee
+- [Kiwi Library](https://modrinth.com/mod/ufdDoWPd) [15.8.2+neoforge] by Snownee
 - [Konkrete](https://modrinth.com/mod/J81TRJWm) [1.9.9] by Keksuccino
-- [Kotlin for Forge](https://modrinth.com/mod/ordsPcFz) [uZAwdzAR] by 
-- [Monocle](https://modrinth.com/mod/apRGdwku) [McCxFKNu] by 
-- [Moonlight Lib](https://modrinth.com/mod/twkfQtEc) [1.21-2.17.37] by MehVahdJukaar
+- [Kotlin for Forge](https://modrinth.com/mod/ordsPcFz) [pp2cY80Q]
+- [Monocle](https://modrinth.com/mod/apRGdwku) [0.2.2.ms] by Ferri_Arnus
+- [Moonlight Lib](https://modrinth.com/mod/twkfQtEc) [1.21-2.29.4] by MehVahdJukaar
 - [Nature's Compass](https://modrinth.com/mod/fPetb5Kh) [1.21.1-3.0.2-neoforge] by ChaosTheDude
-- [SeasonHUD](https://modrinth.com/mod/VNjUn3NA) [1.12.5] by IanAnderson
+- [Not interested!](https://modrinth.com/mod/j7Ux0G0U) [1.0.1] by MoonFather
+- [SeasonHUD](https://modrinth.com/mod/VNjUn3NA) [1.13.17] by IanAnderson
 - [Serene Seasons](https://modrinth.com/mod/e0bNACJD) [10.1.0.3] by Adubbz, Forstride
-- [Snow! Real Magic!](https://modrinth.com/mod/iJNje1E8) [11.1.1+neoforge] by Snownee, minzhi, WZD
-- [Supplementaries](https://modrinth.com/mod/fFEIiSDQ) [1.21-3.0.43-beta] by MehVahdJukaar, Plantkillable
-- [UniLib](https://modrinth.com/mod/nT86WUER) [1.0.5] by CDAGaming
-- [Waystones](https://modrinth.com/mod/LOpKHB2A) [21.1.13] by BlayTheNinth
+- [Snow! Real Magic!](https://modrinth.com/mod/iJNje1E8) [12.1.2+neoforge] by Snownee
+- [Supplementaries](https://modrinth.com/mod/fFEIiSDQ) [1.21-3.5.16] by MehVahdJukaar, Plantkillable
+- [TerraBlender](https://modrinth.com/mod/kkmrDlKT) [4.1.0.8] by Adubbz
+- [UniLib](https://modrinth.com/mod/nT86WUER) [1.2.0] by CDAGaming
+- [Waystones](https://modrinth.com/mod/LOpKHB2A) [21.1.25] by BlayTheNinth
