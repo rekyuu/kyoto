@@ -12,11 +12,11 @@ services:
       - ./config/AdvancedBackups.properties:/data/config/AdvancedBackups.properties
       - ./config/betterdays-common.toml:/data/config/betterdays-common.toml
       - ./config/bluemap/core.conf:/data/config/bluemap/core.conf
-      - ./config/cobblemon/main.json:/data/config/cobblemon/main.json
-      - ./config/cobblemon/starters.json:/data/config/cobblemon/starters.json
-      - ./config/cobbleride/config.json:/data/config/cobbleride/config.json
+      # - ./config/cobblemon/main.json:/data/config/cobblemon/main.json
+      # - ./config/cobblemon/starters.json:/data/config/cobblemon/starters.json
+      # - ./config/cobbleride/config.json:/data/config/cobbleride/config.json
       - ./config/journeymap/journeymap.server.global.config:/data/journeymap/server/6.0/journeymap.server.global.config
-      # - ./config/waystones-common.toml:/data/config/waystones-common.toml
+      - ./config/waystones-common.toml:/data/config/waystones-common.toml
     environment:
       UID: 1000
       GID: 1000
