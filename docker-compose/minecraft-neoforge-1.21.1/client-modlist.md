@@ -4,7 +4,6 @@
 - [BetterDays](https://modrinth.com/mod/tPLE214j) [3.3.6.2] by wendall911
 - [Biomes O' Plenty](https://modrinth.com/mod/HXF82T3G) [21.1.0.13] by Adubbz, Forstride
 - [Chalk](https://modrinth.com/mod/YWGP4Y1d) [NONE] by mortuusars
-- [CorgiLib](https://modrinth.com/mod/ziOp6EO8) [5.0.0.7] by Corgi Taco
 - [CraftPresence](https://modrinth.com/mod/DFqQfIBR) [2.7.0] by CDAGaming
 - [Create](https://modrinth.com/mod/LNytGWDc) [6.0.9] by simibubi
 - [Create Goggles](https://modrinth.com/mod/L1RT5SJc) [6.1.1] by Robocraft999
@@ -20,7 +19,6 @@
 - [Exposure Catalog](https://modrinth.com/mod/PWcQ3kcp) [1.1.1] by mortuusars
 - [Exposure Polaroid](https://modrinth.com/mod/WEWiqYkW) [1.1.2] by mortuusars
 - [Farmer's Delight](https://modrinth.com/mod/R2OftAxM) [1.2.9] by vectorwing
-- [Gears n' Kinetics](https://modrinth.com/mod/gEWECBVL) [1.0l] by LopyLuna
 - [GlitchCore](https://modrinth.com/mod/s3dmwKy5) [2.1.0.0] by Adubbz
 - [Inventory Tweaks Refoxed](https://modrinth.com/mod/uqnMI1kq) [1.21.1-1.2.0] by LobsterJonn (Current maintainer)
 - [Iris](https://modrinth.com/mod/YL57xq9U) [1.8.12-snapshot+mc1.21.1-local] by coderbot, IMS212

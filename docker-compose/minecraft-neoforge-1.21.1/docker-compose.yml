@@ -55,6 +55,7 @@ services:
       #
       # Causes issues/doesn't work
       #  cobblemon-whiteout:Zv6g33JZ
+      #  gears-n-kinetics:1SG2AP9A
       #  immersive-snow:Of60m2yB
       #  multiworld:ibarJFoZ
       MODRINTH_PROJECTS: |-
@@ -75,7 +76,6 @@ services:
         exposure-catalog:OOrLeZEH
         exposure-polaroid:ApvtFYak
         farmers-delight:opCbq7uB
-        gears-n-kinetics:1SG2AP9A
         inventory-tweaks-refoxed:tcTciTmQ
         jade:VGRMP69T
         jei:YAcQ6elZ
