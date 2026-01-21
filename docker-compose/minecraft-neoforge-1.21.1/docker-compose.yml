@@ -58,7 +58,7 @@ services:
       #  cobblemon-whiteout:Zv6g33JZ
       #  immersive-snow:Of60m2yB
       #  multiworld:ibarJFoZ
-      #  slice-and-dice:DwseRoo3
+      #  slice-and-dice:DwseRoo3 -- https://github.com/PssbleTrngle/SliceAndDice/issues/252
       MODS: |-
         https://github.com/cpburnz/minecraft-prometheus-exporter/releases/download/1.21.1-neoforge-1.2.1/Prometheus-Exporter-1.21.1-neoforge-1.2.1.jar
       MODRINTH_PROJECTS: |-
