@@ -62,6 +62,9 @@ data:
           - source_labels: [__meta_kubernetes_endpoints_name]
             regex: "node-exporter"
             action: keep
+          - source_labels: [__meta_kubernetes_pod_node_name]
+            action: replace
+            target_label: instance
       
       - job_name: "kubernetes-service-endpoints"
         kubernetes_sd_configs:
@@ -91,6 +94,9 @@ data:
           - source_labels: [__meta_kubernetes_service_name]
             action: replace
             target_label: kubernetes_name
+          - source_labels: [__meta_kubernetes_pod_node_name]
+            action: replace
+            target_label: instance
 
     remote_write:
       - url: http://mimir.default.svc.cluster.local/api/v1/push
