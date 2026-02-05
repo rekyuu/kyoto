@@ -65,6 +65,8 @@ data:
           - source_labels: [__meta_kubernetes_endpoint_node_name]
             action: replace
             target_label: instance
+          - target_label: nodename
+            replacement: "kyoto"
       
       - job_name: "kubernetes-service-endpoints"
         kubernetes_sd_configs:
@@ -97,6 +99,8 @@ data:
           - source_labels: [__meta_kubernetes_endpoint_node_name]
             action: replace
             target_label: instance
+          - target_label: nodename
+            replacement: "kyoto"
 
     remote_write:
       - url: http://mimir.default.svc.cluster.local/api/v1/push
