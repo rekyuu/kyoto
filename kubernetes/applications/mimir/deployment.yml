@@ -152,10 +152,10 @@ spec:
       port: 80
       targetPort: 9009
 ---
-apiVersion: traefik.io/v1alpha1
+apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
-  name: mimir-basic-auth
+  name: mimir-basic-auth-middleware
 spec:
   basicAuth:
     secret: mimir-basic-auth
@@ -173,4 +173,4 @@ spec:
         - name: mimir
           port: 80
       middlewares:
-        - name: mimir-basic-auth
+        - name: mimir-basic-auth-middleware
