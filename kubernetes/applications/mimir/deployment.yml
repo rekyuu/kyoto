@@ -1,0 +1,176 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mimir-volume
+  labels:
+    app: mimir
+spec:
+  capacity:
+    storage: 8Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  local:
+    path: "/srv/mimir"
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - koto
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mimir-volume-claim
+spec:
+  volumeName: mimir-volume
+  storageClassName: local-storage
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 8Gi
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mimir-config
+data: 
+  mimir.yml : |
+    # Mimir configuration for monolithic mode with local filesystem storage
+    multitenancy_enabled: false
+
+    server:
+      http_listen_port: 9009
+      grpc_listen_port: 9095
+      log_level: info
+
+    distributor:
+      pool:
+        health_check_ingesters: true
+      ring:
+        kvstore:
+          store: memberlist
+
+    ingester:
+      ring:
+        kvstore:
+          store: memberlist
+        replication_factor: 1
+        min_ready_duration: 0s
+        final_sleep: 0s
+
+    ingester_client:
+      grpc_client_config:
+        max_recv_msg_size: 104857600
+        max_send_msg_size: 104857600
+
+    blocks_storage:
+      backend: filesystem
+      filesystem:
+        dir: /data/blocks
+      tsdb:
+        dir: /data/tsdb
+      bucket_store:
+        sync_dir: /data/tsdb-sync
+
+    compactor:
+      data_dir: /data/compactor
+      sharding_ring:
+        kvstore:
+          store: memberlist
+
+    store_gateway:
+      sharding_ring:
+        replication_factor: 1
+        kvstore:
+          store: memberlist
+
+    ruler_storage:
+      backend: filesystem
+      filesystem:
+        dir: /data/rules
+
+    limits:
+      ingestion_rate: 250000
+      ingestion_burst_size: 500000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mimir
+  labels:
+    app: mimir
+spec:
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: mimir
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mimir
+    spec:
+      containers:
+        - name: mimir
+          image: grafana/mimir:2.17.5
+          imagePullPolicy: Always
+          args: ["-config.file=/etc/mimir/mimir.yml"]
+          ports:
+            - containerPort: 9009
+          volumeMounts:
+            - mountPath: "/etc/mimir/mimir.yml"
+              name: mimir-config-mount
+              subPath: mimir.yml
+            - mountPath: "/data"
+              name: mimir-volume-mount
+              subPath: data
+      volumes:
+        - name: mimir-config-mount
+          configMap:
+            name: mimir-config
+        - name: mimir-volume-mount
+          persistentVolumeClaim:
+            claimName: mimir-volume-claim
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mimir
+spec:
+  type: ClusterIP
+  selector:
+    app: mimir
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 9009
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: mimir-basic-auth
+spec:
+  basicAuth:
+    secret: mimir-basic-auth
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: mimir
+spec:
+  routes:
+    - kind: Rule
+      match: Host(`mimir.riichi.me`)
+      priority: 10
+      services:
+        - name: mimir
+          port: 80
+      middlewares:
+        - name: mimir-basic-auth
