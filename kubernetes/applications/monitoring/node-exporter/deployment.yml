@@ -18,6 +18,12 @@ spec:
         - name: node-exporter
           image: prom/node-exporter:latest
           imagePullPolicy: Always
+          args:
+            - "--path.procfs=/host/proc"
+            - "--path.sysfs=/host/sys"
+            - "--path.rootfs=/host/root"
+            - "--collector.processes"
+            - "--collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)"
           ports:
             - containerPort: 9100
           volumeMounts:
