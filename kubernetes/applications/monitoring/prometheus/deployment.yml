@@ -51,8 +51,8 @@ metadata:
 data:
   prometheus.yml: |-
     global:
-      scrape_interval: 15s
-      evaluation_interval: 15s
+      scrape_interval: 5s
+      evaluation_interval: 5s
 
     scrape_configs:
       - job_name: "node-exporter"
@@ -99,8 +99,10 @@ data:
           - source_labels: [__meta_kubernetes_endpoint_node_name]
             action: replace
             target_label: instance
-          - target_label: nodename
+          - source_labels: [nodename]
+            action: replace
             replacement: "kyoto"
+            target_label: nodename
 
     remote_write:
       - url: http://mimir.default.svc.cluster.local/api/v1/push
