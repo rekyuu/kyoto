@@ -130,7 +130,6 @@ spec:
               subPath: mimir.yml
             - mountPath: "/data"
               name: mimir-volume-mount
-              subPath: data
       volumes:
         - name: mimir-config-mount
           configMap:
