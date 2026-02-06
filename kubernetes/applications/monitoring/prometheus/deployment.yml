@@ -104,6 +104,10 @@ data:
             replacement: "kyoto"
             target_label: nodename
 
+      - job_name: "minecraft"
+        static_configs:
+          - targets: ["10.0.2.1:19565"]
+
     remote_write:
       - url: http://mimir.default.svc.cluster.local/api/v1/push
         queue_config:
