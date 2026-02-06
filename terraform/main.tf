@@ -126,7 +126,7 @@ resource "hcloud_firewall" "private_firewall" {
     direction = "in"
     protocol = "icmp"
     source_ips = [
-      "10.0.0.0/16"
+      "10.0.1.0/24"
     ]
   }
 
@@ -136,7 +136,7 @@ resource "hcloud_firewall" "private_firewall" {
     protocol  = "tcp"
     port = "any"
     source_ips = [
-      "10.0.0.0/16"
+      "10.0.1.0/24"
     ]
   }
 }
@@ -180,7 +180,7 @@ resource "hcloud_server" "main_server" {
 
   network {
     network_id = hcloud_network.network.id
-    ip = "10.0.1.2"
+    ip = "10.0.1.1"
     alias_ips = []
   }
 

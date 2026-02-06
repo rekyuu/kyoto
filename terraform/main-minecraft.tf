@@ -23,17 +23,11 @@ resource "hcloud_primary_ip" "minecraft_ipv6" {
   delete_protection = true
 }
 
-resource "hcloud_network" "minecraft_network" {
-  name = "minecraft-network"
-  ip_range = "10.1.0.0/16"
-  delete_protection = true
-}
-
 resource "hcloud_network_subnet" "minecraft_network_subnet" {
   type = "cloud"
-  network_id = hcloud_network.minecraft_network.id
+  network_id = hcloud_network.network.id
   network_zone = "us-east"
-  ip_range = "10.1.1.0/24"
+  ip_range = "10.0.2.0/24"
 }
 
 // Create the firewall
@@ -135,8 +129,8 @@ resource "hcloud_server" "minecraft_server" {
   }
 
   network {
-    network_id = hcloud_network.minecraft_network.id
-    ip = "10.1.1.2"
+    network_id = hcloud_network.network.id
+    ip = "10.0.2.1"
     alias_ips = []
   }
 }
