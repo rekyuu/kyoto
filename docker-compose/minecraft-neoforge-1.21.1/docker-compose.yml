@@ -34,6 +34,7 @@ services:
         /gamerule doInsomnia false
         /gamerule forgiveDeadPlayers true
         /gamerule keepInventory true
+        /gamerule mobGriefing false
       # Mods that I want that aren't updated yet 
       #  create-big-cannons
       #  create-cobblemon-industrialized
