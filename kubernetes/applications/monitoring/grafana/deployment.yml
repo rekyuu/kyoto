@@ -65,7 +65,7 @@ spec:
           imagePullPolicy: Always
           env:
             - name: GF_PLUGINS_PREINSTALL
-              value: grafana-clock-panel
+              value: grafana-clock-panel,natel-discrete-panel,grafana-piechart-panel
           ports:
             - containerPort: 3000
           volumeMounts:
