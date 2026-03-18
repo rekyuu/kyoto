@@ -1,0 +1,135 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: tuwunel-volume
+  labels:
+    app: tuwunel
+spec:
+  capacity:
+    storage: 8Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  local:
+    path: "/srv/tuwunel"
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - koto
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: tuwunel-volume-claim
+spec:
+  volumeName: tuwunel-volume
+  storageClassName: local-storage
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 8Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tuwunel
+  labels:
+    app: tuwunel
+spec:
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: tuwunel
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tuwunel
+    spec:
+      containers:
+        - name: tuwunel
+          image: jevolk/tuwunel:latest
+          imagePullPolicy: Always
+          env:
+            - name: TUWUNEL_SERVER_NAME
+              value: riichi.me
+            - name: TUWUNEL_WELL_KNOWN__CLIENT
+              value: https://matrix.riichi.me
+            - name: TUWUNEL_WELL_KNOWN__SERVER
+              value: matrix.riichi.me:443
+            - name: TUWUNEL_DATABASE_PATH
+              value: /var/lib/tuwunel
+            - name: TUWUNEL_PORT
+              value: 8448
+            - name: TUWUNEL_MAX_REQUEST_SIZE
+              value: 20000000
+            - name: TUWUNEL_ALLOW_REGISTRATION
+              value: "true"
+            - name: TUWUNEL_REGISTRATION_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: matrix-secrets
+                  key: tuwunel-registration-token
+            - name: TUWUNEL_ALLOW_FEDERATION
+              value: "true"
+            - name: TUWUNEL_TRUSTED_SERVERS
+              value: '["matrix.org"]'
+            - name: TUWUNEL_ADDRESS
+              value: 0.0.0.0
+          ports:
+            - containerPort: 8448
+          volumeMounts:
+            - mountPath: "/var/lib/tuwunel"
+              name: tuwunel-volume-mount
+      volumes:
+        - name: tuwunel-volume-mount
+          persistentVolumeClaim:
+            claimName: tuwunel-volume-claim
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tuwunel
+spec:
+  type: ClusterIP
+  selector:
+    app: tuwunel
+  ports:
+    - protocol: TCP
+      port: 8448
+      targetPort: 8448
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: tuwunel
+spec:
+  ingressClassName: tuwunel
+  rules:
+    - host: "riichi.me"
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/.well-known/matrix"
+            backend:
+              service:
+                name: tuwunel
+                port:
+                  number: 8448
+    - host: "matrix.riichi.me"
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: tuwunel
+                port:
+                  number: 8448
