@@ -106,30 +106,21 @@ spec:
       port: 8448
       targetPort: 8448
 ---
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
 metadata:
   name: tuwunel
 spec:
-  ingressClassName: tuwunel
-  rules:
-    - host: "riichi.me"
-      http:
-        paths:
-          - pathType: Prefix
-            path: "/.well-known/matrix"
-            backend:
-              service:
-                name: tuwunel
-                port:
-                  number: 8448
-    - host: "matrix.riichi.me"
-      http:
-        paths:
-          - pathType: Prefix
-            path: "/"
-            backend:
-              service:
-                name: tuwunel
-                port:
-                  number: 8448
+  routes:
+    - kind: Rule
+      match: Host(`riichi.me`) && Path(`/.well-known/matrix`)
+      priority: 10
+      services:
+        - name: tuwunel
+          port: 8448
+    - kind: Rule
+      match: Host(`matrix.riichi.me`)
+      priority: 10
+      services:
+        - name: tuwunel
+          port: 8448
