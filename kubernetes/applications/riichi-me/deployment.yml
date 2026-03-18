@@ -43,7 +43,7 @@ spec:
   routes:
     - kind: Rule
       match: HostRegexp(`{any:.+}`)
-      priority: 1
+      priority: 5
       services:
         - name: riichi-me
           port: 80
