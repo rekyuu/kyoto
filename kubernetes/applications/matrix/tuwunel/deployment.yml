@@ -114,7 +114,7 @@ spec:
   routes:
     - kind: Rule
       match: Host(`riichi.me`) && PathPrefix(`/.well-known/matrix`)
-      priority: 1
+      priority: 20
       services:
         - name: tuwunel
           port: 8448
