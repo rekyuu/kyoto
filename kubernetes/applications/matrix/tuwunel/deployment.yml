@@ -113,7 +113,7 @@ metadata:
 spec:
   routes:
     - kind: Rule
-      match: Host(`riichi.me`) && Path(`/.well-known/matrix`)
+      match: Host(`riichi.me`) && PathPrefix(`/.well-known/matrix`)
       priority: 10
       services:
         - name: tuwunel
