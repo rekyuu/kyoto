@@ -83,6 +83,8 @@ spec:
               value: "[\"matrix.org\"]"
             - name: TUWUNEL_ADDRESS
               value: 0.0.0.0
+            - name: TUWUNEL_URL_PREVIEW_DOMAIN_EXPLICIT_ALLOWLIST
+              value: "[\"*\"]"
           ports:
             - containerPort: 8448
           volumeMounts:
