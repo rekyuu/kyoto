@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: kumakaini-request-processor
-          image: ghcr.io/rekyuu/kumakaini-request-processor:3.10.1
+          image: ghcr.io/rekyuu/kumakaini-request-processor:3.11.0
           imagePullPolicy: Always
           env:
             - name: REDIS_HOST
@@ -82,7 +82,7 @@ spec:
     spec:
       containers:
         - name: kumakaini-discord
-          image: ghcr.io/rekyuu/kumakaini-discord:3.10.1
+          image: ghcr.io/rekyuu/kumakaini-discord:3.11.0
           imagePullPolicy: Always
           env:
             - name: REDIS_HOST
@@ -132,6 +132,11 @@ spec:
                 secretKeyRef:
                   name: kuma-secrets
                   key: discord-moon-guild-id
+            - name: DISCORD_MAHJONG_GUILD_ID
+              valueFrom:
+                secretKeyRef:
+                  name: kuma-secrets
+                  key: discord-mahjong-guild-id
             - name: TELEGRAM_ADMIN_ID
               valueFrom:
                 secretKeyRef:
@@ -157,7 +162,7 @@ spec:
     spec:
       containers:
         - name: kumakaini-telegram
-          image: ghcr.io/rekyuu/kumakaini-telegram:3.10.1
+          image: ghcr.io/rekyuu/kumakaini-telegram:3.11.0
           imagePullPolicy: Always
           env:
             - name: REDIS_HOST
@@ -217,7 +222,7 @@ spec:
     spec:
       containers:
         - name: kumakaini-twitch
-          image: ghcr.io/rekyuu/kumakaini-twitch:3.10.1
+          image: ghcr.io/rekyuu/kumakaini-twitch:3.11.0
           imagePullPolicy: Always
           env:
             - name: REDIS_HOST
