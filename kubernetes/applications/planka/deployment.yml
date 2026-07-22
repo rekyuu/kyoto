@@ -59,7 +59,7 @@ spec:
           imagePullPolicy: Always
           env:
             - name: BASE_URL
-              value: https://planka.riichi.me
+              value: https://kanban.riichi.me
             - name: DATABASE_URL
               valueFrom:
                 secretKeyRef:
@@ -122,7 +122,7 @@ metadata:
 spec:
   routes:
     - kind: Rule
-      match: Host(`planka.riichi.me`)
+      match: Host(`kanban.riichi.me`)
       priority: 10
       services:
         - name: planka
