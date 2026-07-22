@@ -90,6 +90,8 @@ spec:
                 secretKeyRef:
                   name: planka-secrets
                   key: default-admin-username
+            - name: TRUST_PROXY
+              value: "true"
           ports:
             - containerPort: 1337
           volumeMounts:
