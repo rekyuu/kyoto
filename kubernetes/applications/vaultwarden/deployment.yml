@@ -55,7 +55,7 @@ spec:
     spec:
       containers:
         - name: vaultwarden
-          image: vaultwarden/server:testing-alpine
+          image: vaultwarden/server:1.37.0-alpine
           imagePullPolicy: Always
           ports:
             - containerPort: 80
