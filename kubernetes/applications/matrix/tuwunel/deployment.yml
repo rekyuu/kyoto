@@ -80,7 +80,10 @@ spec:
             - name: TUWUNEL_ALLOW_FEDERATION
               value: "true"
             - name: TUWUNEL_TRUSTED_SERVERS
-              value: "[\"matrix.org\"]"
+              valueFrom:
+                secretKeyRef:
+                  name: matrix-secrets
+                  key: tuwunel-trusted-servers
             - name: TUWUNEL_ADDRESS
               value: 0.0.0.0
             - name: TUWUNEL_URL_PREVIEW_DOMAIN_EXPLICIT_ALLOWLIST
