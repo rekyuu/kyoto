@@ -112,6 +112,14 @@ spec:
       targetPort: 8448
 ---
 apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: tuwunel-allow-encoded-chars
+spec:
+  encodedCharacters:
+    allowEncodedHash: true
+---
+apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: tuwunel
@@ -123,9 +131,13 @@ spec:
       services:
         - name: tuwunel
           port: 8448
+      middlewares:
+        - name: tuwunel-allow-encoded-chars
     - kind: Rule
       match: Host(`matrix.riichi.me`)
       priority: 10
       services:
         - name: tuwunel
           port: 8448
+      middlewares:
+        - name: tuwunel-allow-encoded-chars
