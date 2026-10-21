@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: speedruns-wiki
-          image: ghcr.io/rekyuu/speedruns-wiki:latest
+          image: ghcr.io/rekyuu/speedruns-wiki:1.1.0
           imagePullPolicy: Always
           ports:
             - containerPort: 80
@@ -43,6 +43,18 @@ spec:
   routes:
     - kind: Rule
       match: Host(`speedruns.wiki`)
+      priority: 10
+      services:
+        - name: speedruns-wiki
+          port: 80
+    - kind: Rule
+      match: Host(`octopath.speedruns.wiki`)
+      priority: 10
+      services:
+        - name: speedruns-wiki
+          port: 80
+    - kind: Rule
+      match: Host(`okami.speedruns.wiki`)
       priority: 10
       services:
         - name: speedruns-wiki
