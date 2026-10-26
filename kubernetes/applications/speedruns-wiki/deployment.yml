@@ -47,15 +47,15 @@ spec:
       services:
         - name: speedruns-wiki
           port: 80
-    - kind: Rule
-      match: Host(`octopath.speedruns.wiki`)
-      priority: 10
-      services:
-        - name: speedruns-wiki
-          port: 80
-    - kind: Rule
-      match: Host(`okami.speedruns.wiki`)
-      priority: 10
-      services:
-        - name: speedruns-wiki
-          port: 80
+    # - kind: Rule
+    #   match: Host(`octopath.speedruns.wiki`)
+    #   priority: 10
+    #   services:
+    #     - name: speedruns-wiki
+    #       port: 80
+    # - kind: Rule
+    #   match: Host(`okami.speedruns.wiki`)
+    #   priority: 10
+    #   services:
+    #     - name: speedruns-wiki
+    #       port: 80
