@@ -306,16 +306,16 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
----
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
-metadata:
-  name: octopath-wiki
-spec:
-  routes:
-    - kind: Rule
-      match: Host(`octopath.speedruns.wiki`)
-      priority: 10
-      services:
-        - name: octopath-wiki
-          port: 80
+# ---
+# apiVersion: traefik.containo.us/v1alpha1
+# kind: IngressRoute
+# metadata:
+#   name: octopath-wiki
+# spec:
+#   routes:
+#     - kind: Rule
+#       match: Host(`octopath.speedruns.wiki`)
+#       priority: 10
+#       services:
+#         - name: octopath-wiki
+#           port: 80
