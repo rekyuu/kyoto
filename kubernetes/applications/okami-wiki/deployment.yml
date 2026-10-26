@@ -221,7 +221,7 @@ spec:
   selector:
     matchLabels:
       app: okami-wiki
-  replicas: 0
+  replicas: 1
   template:
     metadata:
       labels:
@@ -229,7 +229,7 @@ spec:
     spec:
       containers:
         - name: okami-wiki
-          image: ghcr.io/rekyuu/mediawiki-custom:1.36.2-2
+          image: ghcr.io/rekyuu/mediawiki-custom:1.36.2-3
           imagePullPolicy: Always
           ports:
             - containerPort: 80
