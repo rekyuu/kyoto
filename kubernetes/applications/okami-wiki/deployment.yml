@@ -229,7 +229,7 @@ spec:
     spec:
       containers:
         - name: okami-wiki
-          image: ghcr.io/rekyuu/mediawiki-custom:1.36.2-6
+          image: ghcr.io/rekyuu/mediawiki-custom:1.36.2-7
           imagePullPolicy: Always
           ports:
             - containerPort: 80
