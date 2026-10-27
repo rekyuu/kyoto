@@ -215,7 +215,7 @@ spec:
   selector:
     matchLabels:
       app: octopath-wiki
-  replicas: 1
+  replicas: 0
   template:
     metadata:
       labels:
