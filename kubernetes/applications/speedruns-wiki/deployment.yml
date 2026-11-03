@@ -19,19 +19,56 @@ spec:
         - name: speedruns-wiki
           image: ghcr.io/rekyuu/speedruns-wiki:1.2.0
           imagePullPolicy: Always
-          ports:
-            - containerPort: 80
+        - name: anubis
+          image: ghcr.io/techarohq/anubis:latest
+          imagePullPolicy: Always
+          env:
+            - name: "BIND"
+              value: ":8080"
+            - name: ED25519_PRIVATE_KEY_HEX
+              valueFrom:
+                secretKeyRef:
+                  name: speedruns-wiki-anubis-key
+                  key: ED25519_PRIVATE_KEY_HEX
+            - name: "METRICS_BIND"
+              value: ":9090"
+            - name: "SERVE_ROBOTS_TXT"
+              value: "true"
+            - name: "TARGET"
+              value: "http://localhost:80"
+            - name: "OG_PASSTHROUGH"
+              value: "true"
+            - name: "OG_EXPIRY_TIME"
+              value: "24h"
+          resources:
+            limits:
+              cpu: 750m
+              memory: 256Mi
+            requests:
+              cpu: 250m
+              memory: 256Mi
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+            runAsNonRoot: true
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+            seccompProfile:
+              type: RuntimeDefault
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: speedruns-wiki
+  name: speedruns-wiki-anubis
 spec:
   type: ClusterIP
   ports:
-  - name: http
-    targetPort: 80
-    port: 80
+  - name: anubis
+    protocol: TCP
+    targetPort: 8080
+    port: 8080
   selector:
     app: speedruns-wiki
 ---
@@ -45,5 +82,5 @@ spec:
       match: Host(`speedruns.wiki`)
       priority: 10
       services:
-        - name: speedruns-wiki
-          port: 80
+        - name: speedruns-wiki-anubis
+          port: 8080
