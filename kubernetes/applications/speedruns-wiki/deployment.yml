@@ -61,7 +61,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: speedruns-wiki-anubis
+  name: speedruns-wiki
 spec:
   type: ClusterIP
   ports:
@@ -82,5 +82,5 @@ spec:
       match: Host(`speedruns.wiki`)
       priority: 10
       services:
-        - name: speedruns-wiki-anubis
+        - name: speedruns-wiki
           port: 8080

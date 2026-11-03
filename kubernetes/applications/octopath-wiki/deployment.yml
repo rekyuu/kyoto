@@ -225,8 +225,6 @@ spec:
         - name: octopath-wiki
           image: ghcr.io/rekyuu/mediawiki-custom:1.45.6
           imagePullPolicy: Always
-          ports:
-            - containerPort: 80
           env:
             - name: MW_EMAIL
               valueFrom:
@@ -286,6 +284,44 @@ spec:
             - mountPath: "/var/www/html/images"
               name: octopath-wiki-volume-mount
               subPath: images
+        - name: anubis
+          image: ghcr.io/techarohq/anubis:latest
+          imagePullPolicy: Always
+          env:
+            - name: "BIND"
+              value: ":8080"
+            - name: ED25519_PRIVATE_KEY_HEX
+              valueFrom:
+                secretKeyRef:
+                  name: speedruns-wiki-anubis-key
+                  key: ED25519_PRIVATE_KEY_HEX
+            - name: "METRICS_BIND"
+              value: ":9090"
+            - name: "SERVE_ROBOTS_TXT"
+              value: "true"
+            - name: "TARGET"
+              value: "http://localhost:80"
+            - name: "OG_PASSTHROUGH"
+              value: "true"
+            - name: "OG_EXPIRY_TIME"
+              value: "24h"
+          resources:
+            limits:
+              cpu: 750m
+              memory: 256Mi
+            requests:
+              cpu: 250m
+              memory: 256Mi
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+            runAsNonRoot: true
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+            seccompProfile:
+              type: RuntimeDefault
       volumes:
         - name: octopath-wiki-config-mount
           configMap:
@@ -303,9 +339,10 @@ spec:
   selector:
     app: octopath-wiki
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
+    - name: anubis
+      protocol: TCP
+      targetPort: 8080
+      port: 8080
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
@@ -318,4 +355,4 @@ spec:
       priority: 10
       services:
         - name: octopath-wiki
-          port: 80
+          port: 8080
